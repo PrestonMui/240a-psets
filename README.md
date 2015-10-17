@@ -1,2 +1,2 @@
-# econ-240a
-Repo for my Econ 240a Jupyter Notebooks
+# 240a-Psets
+Git Repo for Preston Mui's Econ-240a Problem Sets
