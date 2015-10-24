@@ -1,0 +1,68 @@
+\documentclass{article}[12pt]
+\usepackage{enumerate,amsfonts,graphicx,amsthm,amssymb,graphicx}
+\usepackage[mathscr]{euscript}
+\usepackage[hmargin=1.5cm,vmargin=1.5cm]{geometry}
+\usepackage[fleqn]{amsmath}
+
+% \setlength{\mathindent}{15pt}
+
+% BEGIN DOCUMENT
+
+\begin{document}
+
+\begin{center}
+	Preston Mui | mui@berkeley.edu
+
+	{\bf Econ-240a: Pset 1}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problems
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+
+% Problem 2
+	\item Binomial-Beta Learning
+	\begin{enumerate}[(1)]
+		\item \textbf{What is the conditional distribution of $Z_N$ given $\theta$?}
+		$Z_N$ is distributed with p.m.f.
+		\begin{align*}
+		    f_{Z_N | \Theta}(z | \theta) &= \begin{cases}
+		    \binom{n}{z} \theta^z (1-\theta)^{N - z} &\mbox{ if $z \in 0, 1, \cdots, N$} \\
+		    0 &\mbox{ otherwise}
+		    \end{cases}
+		\end{align*}
+
+	\item \textbf{Calculate the joint distribution of $Z_N$ and $\theta$}
+	\begin{align*}
+	    f_{Z_N,\Theta}(z,\theta) &= f_{\Theta}(\theta) f_{Z_N | \Theta}(z|\theta) \\
+	    &= \frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} Binomial(n,z) \theta^z (1-\theta)^{N - z} \mbox{ if $z \in 0, 1, \cdots, N$ and $\theta \in [0,1]$}; 0 \mbox{ otherwise} \\
+	\end{align*}
+
+	\item \textbf{Calculate the conditional distribution of $\theta$ given $Z_N$. What is the mean of this distribution, and why would you call it Posterior?}
+
+	By Bayes' Rule,
+	\begin{align*}
+	    f_{\Theta | Z_N}(\theta | z) &= \frac{f_{\Theta, Z_N}(\theta,z)}{f_{Z_N}}\\
+	    &= \frac{\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} Binomial(n,z) \theta^z (1-\theta)^{N - z}}{\int_{0}^{1} \frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} Binomial(n,z) \theta^z (1-\theta)^{N - z} d\theta}\\
+	    &= \frac{\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} \theta^z (1-\theta)^{N - z}}{\int_{0}^{1} \frac{\theta^{z+a-1}(1-\theta)^{N-z+b-1}}{B(a,b)} d\theta} \\
+	    &= \frac{\theta^{z+a-1}(1-\theta)^{N-z+b-1}}{B(z+a-1,N-z+b-1)}
+	\end{align*}
+	The mean of this distribution is
+
+	The name is ``posterior'' because it is finding a distribution of $\theta$ \textbf{after}, or ``post'' drawing the data.
+
+	\item \textbf{Say $\alpha = \beta = 1/2$.}
+	
+	This prior assigns the bulk of the prior belief to the tails (close to 0 and 1) with low probability for $\theta$ close to 0.5, and even probability to $\theta > 0.5$ and $\theta < 0.5$. This prior is not very good because almost assuredly more than half of Cal students would intend to vote for Obama, so assigning equal probability mass to both sides of $0.5$ does not make sense. Also, a belief that assigns high probability mass to *both* large support for Obama and very little support for Obama does not make sense.
+
+	\item 
+
+	\item 
+	\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
