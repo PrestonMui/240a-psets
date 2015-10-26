@@ -19,19 +19,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Problems
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \setcounter{section}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 2
 \section{Binomial-Beta Learning}
-	\begin{enumerate}
-		\item \textbf{What is the conditional distribution of $Z_N$ given $\theta$?}
-		
-		$Z_N$ is distributed with p.m.f.
-		\begin{align*}
-		    f_{Z_N | \Theta}(z | \theta) &= \begin{cases}
-		    \binom{n}{z} \theta^z (1-\theta)^{N - z} &\mbox{ if $z \in 0, 1, \cdots, N$} \\
-		    0 &\mbox{ otherwise}
-		    \end{cases}
-		\end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+	\item \textbf{What is the conditional distribution of $Z_N$ given $\theta$?}
+	
+	$Z_N$ is distributed with p.m.f.
+	\begin{align*}
+	    f_{Z_N | \Theta}(z | \theta) &= \begin{cases}
+	    \binom{n}{z} \theta^z (1-\theta)^{N - z} &\mbox{ if $z \in 0, 1, \cdots, N$} \\
+	    0 &\mbox{ otherwise}
+	    \end{cases}
+	\end{align*}
 
 	\item \textbf{Calculate the joint distribution of $Z_N$ and $\theta$}
 	\begin{align*}
@@ -52,91 +55,97 @@
 
 	\item \textbf{Say $\alpha = \beta = 1/2$.}
 	
-	This prior assigns the bulk of the prior belief to the tails (close to 0 and 1) with low probability for $\theta$ close to 0.5, and even probability to $\theta > 0.5$ and $\theta < 0.5$. This prior is not very good because almost assuredly more than half of Cal students would intend to vote for Obama, so assigning equal probability mass to both sides of $0.5$ does not make sense. Also, a belief that assigns high probability mass to *both* large support for Obama and very little support for Obama does not make sense.
+	This prior assigns the bulk of the prior belief to the tails (close to 0 and 1) with low probability for $\theta$ close to 0.5, and even probability to $\theta > 0.5$ and $\theta < 0.5$. This prior is not very good because almost assuredly more than half of Cal students would intend to vote for Obama, so assigning equal probability mass to both sides of $0.5$ does not make sense. Also, a belief that assigns high probability mass to \emph{both} large support for Obama and very little support for Obama does not make sense.
 
-	\item 
+	\item \textbf{The Harold Jeffreys interval:} This interval uses the $\frac{\alpha}{2}$ and $1 - \frac{\alpha}{2}$ quantiles of the posterior distribution from above. So, given the prior distribution on $\theta$ from above, the Harold Jeffreys interval contains the true value of $\theta$ with probability $1-\alpha$.
 
-	\end{enumerate}
+	\item \textbf{Given a Jeffrey's interval of [0.47,0.73], what is the probability that this interval contains $\theta$?} If I have constructed a Jeffrey's interval for some prior distribution of $\theta$, some data sample, and some choice of $\alpha$, then I would say that the interval contains $\theta$ is $1-\alpha$ with probability $1-\alpha$. Of course, in \emph{reality}, the probability is either 0 or 1, because the ``true'' $\theta$ is fundamentally deterministic. This probability reflects some probabilistic belief about $\theta$ that depends on the choice of prior.
 
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 3
 \section{Multivariate Normal Distribution}
-	\begin{enumerate}
-		\item \textbf{Let $C$ be a $K \times K$ nonsingular matrix. Show that $Z = CY$ is distributed according to $\mathscr{N} (C \mu,C \Sigma C')$}:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-		Because $Z = CY$ is a linear transformation, and $C$ is invertible,
-		\begin{align*}
-			f(z_1, \cdots, z_K) &= \frac{1}{|C|} f[C^{-1}Y] \\
-			&= (2 \pi)^{-K/2} |\Sigma|^{-1/2} |C|^{-1} \exp \bigg( -\frac{1}{2}(C^{-1}y - \mu)' \Sigma^{-1} (C^{-1}y - \mu) \bigg) \\
-			&= (2 \pi)^{-K/2} |\Sigma|^{-1/2} |C|^{-1/2} |C|^{-1/2} \exp \bigg( -\frac{1}{2}(C^{-1}y - C^{-1}C\mu)' \Sigma^{-1} (C^{-1}y - C^{-1}C\mu) \bigg) \\
-			&= (2 \pi)^{-K/2} (|C||\Sigma||C|)^{-1/2} \exp \bigg( -\frac{1}{2}(C^{-1}(y - C\mu))' \Sigma^{-1} (C^{-1}(y - C\mu)) \bigg) \\
-			&= (2 \pi)^{-K/2} (|C\Sigma C'|)^{-1/2} \exp \bigg( -\frac{1}{2}(y - C\mu)' C^{-1'} \Sigma^{-1} C^{-1}(y - C\mu) \bigg) \\
-			&= (2 \pi)^{-K/2} (|C\Sigma C'|)^{-1/2} \exp \bigg( -\frac{1}{2}(y - C\mu)' C'^{-1} \Sigma^{-1} C^{-1}(y - C\mu) \bigg) \\
-			&= (2 \pi)^{-K/2} (|C\Sigma C'|)^{-1/2} \exp \bigg( -\frac{1}{2}(y - C\mu)' (C \Sigma C')^{-1}(y - C\mu) \bigg)
-		\end{align*}
-		Which is a distribution with mean $C\mu$ and variance-covariance matrix $C\Sigma C'$.
+\begin{enumerate}
+	\item \textbf{Let $C$ be a $K \times K$ nonsingular matrix. Show that $Z = CY$ is distributed according to $\mathscr{N} (C \mu,C \Sigma C')$}:
 
-		\item Show that $Y_1', Y_2'$ are independent if $\Sigma_{12} = \Sigma'_{21} = \underline{00}'$.
+	Because $Z = CY$ is a linear transformation, and $C$ is invertible,
+	\begin{align*}
+		f(z_1, \cdots, z_K) &= \frac{1}{|C|} f[C^{-1}Y] \\
+		&= (2 \pi)^{-K/2} |\Sigma|^{-1/2} |C|^{-1} \exp \bigg( -\frac{1}{2}(C^{-1}y - \mu)' \Sigma^{-1} (C^{-1}y - \mu) \bigg) \\
+		&= (2 \pi)^{-K/2} |\Sigma|^{-1/2} |C|^{-1/2} |C|^{-1/2} \exp \bigg( -\frac{1}{2}(C^{-1}y - C^{-1}C\mu)' \Sigma^{-1} (C^{-1}y - C^{-1}C\mu) \bigg) \\
+		&= (2 \pi)^{-K/2} (|C||\Sigma||C|)^{-1/2} \exp \bigg( -\frac{1}{2}(C^{-1}(y - C\mu))' \Sigma^{-1} (C^{-1}(y - C\mu)) \bigg) \\
+		&= (2 \pi)^{-K/2} (|C\Sigma C'|)^{-1/2} \exp \bigg( -\frac{1}{2}(y - C\mu)' C^{-1'} \Sigma^{-1} C^{-1}(y - C\mu) \bigg) \\
+		&= (2 \pi)^{-K/2} (|C\Sigma C'|)^{-1/2} \exp \bigg( -\frac{1}{2}(y - C\mu)' C'^{-1} \Sigma^{-1} C^{-1}(y - C\mu) \bigg) \\
+		&= (2 \pi)^{-K/2} (|C\Sigma C'|)^{-1/2} \exp \bigg( -\frac{1}{2}(y - C\mu)' (C \Sigma C')^{-1}(y - C\mu) \bigg)
+	\end{align*}
+	Which is a distribution with mean $C\mu$ and variance-covariance matrix $C\Sigma C'$.
 
-		If $Y_1'$  and $Y_2'$ are independent, then $f(Y_1')f(Y_2') = f(Y_1',Y_2')$:
-		\begin{align*}
-			f(Y_1',Y_2') &= (2\pi)^{-K/2} |\Sigma|^{-1/2} \exp \bigg( -\frac{1}{2} (y - \mu)' \Sigma^{-1} (y - \mu) \bigg)\\
-			&= (2\pi)^{-(K_1+K_2)/2} (|\Sigma_{11}||\Sigma_{22}|)^{-1/2} \exp \bigg(-\frac{1}{2} (y_1-\mu_1, y_2 - \mu_2)' \begin{pmatrix} (\Sigma_{11})^{-1} & \underline{00}' \\ \underline{00} & (\Sigma_{22})^{-1} \\ \end{pmatrix} (y_1-\mu_1, y_2 - \mu_2) \bigg) \\
-				& \mbox{using the following facts:}\\
-				& \Sigma_{12} = \Sigma_{21} = \underline{00}' \implies |\Sigma|=|\Sigma_{11}| |\Sigma_{22}| \\
-				& \Sigma_{12} = \Sigma_{21} = \underline{00}' \implies \Sigma^{-1} =
-					\begin{pmatrix}
-						(\Sigma_{11})^{-1} & \underline{00}' \\
-						\underline{00} & (\Sigma_{22})^{-1} \\
-					\end{pmatrix}\\
-			&= (2\pi)^{-(K_1+K_2)/2} (|\Sigma_{11}||\Sigma_{22}|)^{-1/2} \exp \bigg(-\frac{1}{2} \big((y_1-\mu_1)'(\Sigma_{11})^{-1}, (y_2 - \mu_2)' \Sigma_{22})^{-1} \big) \big(y_1-\mu_1, y_2 - \mu_2\big) \bigg) \\
-			&= (2\pi)^{-(K_1+K_2)/2} (|\Sigma_{11}||\Sigma_{22}|)^{-1/2} \exp \bigg(-\frac{1}{2} \big((y_1-\mu_1)'(\Sigma_{11})^{-1}(y_1-\mu_1) + (y_2 - \mu_2)' \Sigma_{22})^{-1} (y_2 - \mu_2) \big) \bigg) \\
-			&= (2\pi)^{-K_1/2} |\Sigma_{11}|^{-1/2} \exp \bigg(-\frac{1}{2} (y_1-\mu_1)'(\Sigma_{11})^{-1}(y_1-\mu_1) \bigg) \times \cdots \\
-				& \mbox{\hspace{3cm}} \cdots (2\pi)^{-K_2/2} |\Sigma_{22}|^{-1/2} \exp \bigg(-\frac{1}{2} (y_2 - \mu_2)' (\Sigma_{22})^{-1} (y_2 - \mu_2) \bigg) = f(Y_1')f(Y_2')
-		\end{align*}
-		Where $Y_1$ and $Y_2$ are independently distributed with means $\mu_1, \mu_2$ and variance-covariance matrices $\Sigma_{11}, \Sigma_{22}$.
+	\item Show that $Y_1', Y_2'$ are independent if $\Sigma_{12} = \Sigma'_{21} = \underline{00}'$.
 
-		\item From part 1, $Z = CY$ is distributed normally with mean $C \mu$ and variance-covariance matrix $C \Sigma C'$:
-		\begin{align*}
-			C \mu &=
-				\begin{pmatrix} I_{K_1} & -\Sigma_{12}\Sigma_{22}^{-1} \\ 0 & I_{K_2} \end{pmatrix}
-				\begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix}
-			= \begin{pmatrix} \mu_1 - \Sigma_{12} \Sigma_{22}^{-1} \mu_2 \\ \mu_2 \end{pmatrix} \\
-			C \Sigma C' &=
-				\begin{pmatrix} I_{K_1} & -\Sigma_{12}\Sigma_{22}^{-1} \\ 0 & I_{K_2} \end{pmatrix}
-				\begin{pmatrix} \Sigma_{11} &\Sigma_{12} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
-				\begin{pmatrix} I_{K_1} & 0 \\ (-\Sigma_{12}\Sigma_{22}^{-1})' & I_{K_2} \end{pmatrix} \\
-			&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & \Sigma_{12} - \Sigma_{12}\Sigma_{22}^{-1} \Sigma_{22} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
-				\begin{pmatrix} I_{K_1} & 0 \\ -(\Sigma_{22}^{-1})' \Sigma_{12}' & I_{K_2} \end{pmatrix} \\
-			&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & 0 \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
-				\begin{pmatrix} I_{K_1} & 0 \\ -\Sigma_{22}^{-1} \Sigma_{21} & I_{K_2} \end{pmatrix} \\
-			&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & 0 \\ \Sigma_{21} - \Sigma_{22}\Sigma_{22}^{-1}\Sigma_{21} & \Sigma_{22} \end{pmatrix} \\
-			&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & 0 \\ 0 & \Sigma_{22} \end{pmatrix}
-		\end{align*}
+	If $Y_1'$  and $Y_2'$ are independent, then $f(Y_1')f(Y_2') = f(Y_1',Y_2')$:
+	\begin{align*}
+		f(Y_1',Y_2') &= (2\pi)^{-K/2} |\Sigma|^{-1/2} \exp \bigg( -\frac{1}{2} (y - \mu)' \Sigma^{-1} (y - \mu) \bigg)\\
+		&= (2\pi)^{-(K_1+K_2)/2} (|\Sigma_{11}||\Sigma_{22}|)^{-1/2} \exp \bigg(-\frac{1}{2} (y_1-\mu_1, y_2 - \mu_2)' \begin{pmatrix} (\Sigma_{11})^{-1} & \underline{00}' \\ \underline{00} & (\Sigma_{22})^{-1} \\ \end{pmatrix} (y_1-\mu_1, y_2 - \mu_2) \bigg) \\
+			& \mbox{using the following facts:}\\
+			& \Sigma_{12} = \Sigma_{21} = \underline{00}' \implies |\Sigma|=|\Sigma_{11}| |\Sigma_{22}| \\
+			& \Sigma_{12} = \Sigma_{21} = \underline{00}' \implies \Sigma^{-1} =
+				\begin{pmatrix}
+					(\Sigma_{11})^{-1} & \underline{00}' \\
+					\underline{00} & (\Sigma_{22})^{-1} \\
+				\end{pmatrix}\\
+		&= (2\pi)^{-(K_1+K_2)/2} (|\Sigma_{11}||\Sigma_{22}|)^{-1/2} \exp \bigg(-\frac{1}{2} \big((y_1-\mu_1)'(\Sigma_{11})^{-1}, (y_2 - \mu_2)' \Sigma_{22})^{-1} \big) \big(y_1-\mu_1, y_2 - \mu_2\big) \bigg) \\
+		&= (2\pi)^{-(K_1+K_2)/2} (|\Sigma_{11}||\Sigma_{22}|)^{-1/2} \exp \bigg(-\frac{1}{2} \big((y_1-\mu_1)'(\Sigma_{11})^{-1}(y_1-\mu_1) + (y_2 - \mu_2)' \Sigma_{22})^{-1} (y_2 - \mu_2) \big) \bigg) \\
+		&= (2\pi)^{-K_1/2} |\Sigma_{11}|^{-1/2} \exp \bigg(-\frac{1}{2} (y_1-\mu_1)'(\Sigma_{11})^{-1}(y_1-\mu_1) \bigg) \times \cdots \\
+			& \mbox{\hspace{3cm}} \cdots (2\pi)^{-K_2/2} |\Sigma_{22}|^{-1/2} \exp \bigg(-\frac{1}{2} (y_2 - \mu_2)' (\Sigma_{22})^{-1} (y_2 - \mu_2) \bigg) = f(Y_1')f(Y_2')
+	\end{align*}
+	Where $Y_1$ and $Y_2$ are independently distributed with means $\mu_1, \mu_2$ and variance-covariance matrices $\Sigma_{11}, \Sigma_{22}$.
 
-		\item Let $E$ be the matrix $\begin{pmatrix} 0 & I_{K-P} \end{pmatrix}$, which is the $(K-P) \times P$ zero matrix concatenated with the $(K-P) \times (K-P)$ identity matrix. From previous results we know that $\begin{pmatrix} D \\ E \end{pmatrix} Y$ is distributed $\mathscr{N} \bigg( \begin{pmatrix} D \\ E \end{pmatrix} \mu, \begin{pmatrix} D \\ E \end{pmatrix} \Sigma \begin{pmatrix} D \\ E \end{pmatrix}' \bigg)$.
+	\item From part 1, $Z = CY$ is distributed normally with mean $C \mu$ and variance-covariance matrix $C \Sigma C'$:
+	\begin{align*}
+		C \mu &=
+			\begin{pmatrix} I_{K_1} & -\Sigma_{12}\Sigma_{22}^{-1} \\ 0 & I_{K_2} \end{pmatrix}
+			\begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix}
+		= \begin{pmatrix} \mu_1 - \Sigma_{12} \Sigma_{22}^{-1} \mu_2 \\ \mu_2 \end{pmatrix} \\
+		C \Sigma C' &=
+			\begin{pmatrix} I_{K_1} & -\Sigma_{12}\Sigma_{22}^{-1} \\ 0 & I_{K_2} \end{pmatrix}
+			\begin{pmatrix} \Sigma_{11} &\Sigma_{12} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
+			\begin{pmatrix} I_{K_1} & 0 \\ (-\Sigma_{12}\Sigma_{22}^{-1})' & I_{K_2} \end{pmatrix} \\
+		&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & \Sigma_{12} - \Sigma_{12}\Sigma_{22}^{-1} \Sigma_{22} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
+			\begin{pmatrix} I_{K_1} & 0 \\ -(\Sigma_{22}^{-1})' \Sigma_{12}' & I_{K_2} \end{pmatrix} \\
+		&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & 0 \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
+			\begin{pmatrix} I_{K_1} & 0 \\ -\Sigma_{22}^{-1} \Sigma_{21} & I_{K_2} \end{pmatrix} \\
+		&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & 0 \\ \Sigma_{21} - \Sigma_{22}\Sigma_{22}^{-1}\Sigma_{21} & \Sigma_{22} \end{pmatrix} \\
+		&=	\begin{pmatrix} \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} & 0 \\ 0 & \Sigma_{22} \end{pmatrix}
+	\end{align*}
 
-		The mean of $\begin{pmatrix} D \\ E \end{pmatrix} Y$ is
-		\begin{align*}
-			\begin{pmatrix} D_{11} & D_{12} \\ 0 & I_{K-P,K-P} \end{pmatrix} \mu &= \begin{pmatrix} D\mu \\ \mu_2 \end{pmatrix}
-		\end{align*}
-		and the variance of $\begin{pmatrix} D \\ E \end{pmatrix} Y$ is
-		\begin{align*}
-			&\begin{pmatrix} D_{11} & D_{12} \\ 0 & I_{K-P,K-P} \end{pmatrix}
-				\begin{pmatrix} \Sigma_{11} & \Sigma_{12} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
-				\begin{pmatrix} D_{11}' & 0 \\ D_{12}' & I_{K-P,K-P} \end{pmatrix} \\
-			&= \begin{pmatrix} D_{11}\Sigma_{11} + D_{12}\Sigma_{21} & D_{11}\Sigma_{12} + D_{12}\Sigma_{22} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
-				\begin{pmatrix} D_{11}' & 0 \\ D_{12}' & I_{K-P,K-P} \end{pmatrix} \\
-			&= \begin{pmatrix} D_{11}\Sigma_{11}D_{11}' + D_{12}\Sigma_{21}D_{11}' + D_{11}\Sigma_{12}D_{12}' + D_{12}\Sigma_{22}D_{12}' & D_{11}\Sigma_{12} + D_{12}\Sigma_{22} \\
-			\Sigma_{21}D_{11}' + \Sigma_{22}D_{12}' & \Sigma_{22} \end{pmatrix} \\
-			&= \begin{pmatrix} D \Sigma D' & D_{11}\Sigma + D_{12}\Sigma_{22} \\ \Sigma_{21}D_{11}' + \Sigma_{22}D_{12}' & \Sigma_{22} \end{pmatrix}
-		\end{align*}
-		Taking the first $P$ elements of $\begin{pmatrix} D\mu \\ \mu_2 \end{pmatrix}$ and the upper-left $P \times P$ elements of $\begin{pmatrix} D \Sigma D' & D_{11}\Sigma + D_{12}\Sigma_{22} \\ \Sigma_{21}D_{11}' + \Sigma_{22}D_{12}' & \Sigma_{22} \end{pmatrix}$ shows that $Z$ is distributed normally with mean $D \mu$ and variance-covariance $D \Sigma D'$.
+	\item Let $E$ be the matrix $\begin{pmatrix} 0 & I_{K-P} \end{pmatrix}$, which is the $(K-P) \times P$ zero matrix concatenated with the $(K-P) \times (K-P)$ identity matrix. From previous results we know that $\begin{pmatrix} D \\ E \end{pmatrix} Y$ is distributed $\mathscr{N} \bigg( \begin{pmatrix} D \\ E \end{pmatrix} \mu, \begin{pmatrix} D \\ E \end{pmatrix} \Sigma \begin{pmatrix} D \\ E \end{pmatrix}' \bigg)$.
 
-		\item Let $C = \begin{pmatrix} I_{K_1} & -\Sigma_{12}\Sigma_{22}^{-1} \\ 0 & I_{K_2} \end{pmatrix}$ from question 3, where I found that $(CY)_1$ and $(CY)_2$ are independent, where $(CY)_1$ is the first $K_1$ elements of $CY$ and $(CY)_2$ the last $K_2$ elements of $CY$. In question 4 I found that $(CY)_1$ is distributed $\mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg)$. Since $(CY)_1$ and $(CY)_2$ are independent, and $(CY)_2 = Y_2$, this is also the conditional distribution of $(CY)_1$ given $Y_2$. That is,
-		\begin{align*}
-			\bigg( (Y_1 - \Sigma_{12}\Sigma_{22}^{-1} Y_2) | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
-			\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \Sigma_{12}\Sigma_{22}^{-1} y_2 + \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
-			\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1} (y_2 - \mu_2), \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
-		\end{align*}
+	The mean of $\begin{pmatrix} D \\ E \end{pmatrix} Y$ is
+	\begin{align*}
+		\begin{pmatrix} D_{11} & D_{12} \\ 0 & I_{K-P,K-P} \end{pmatrix} \mu &= \begin{pmatrix} D\mu \\ \mu_2 \end{pmatrix}
+	\end{align*}
+	and the variance of $\begin{pmatrix} D \\ E \end{pmatrix} Y$ is
+	\begin{align*}
+		&\begin{pmatrix} D_{11} & D_{12} \\ 0 & I_{K-P,K-P} \end{pmatrix}
+			\begin{pmatrix} \Sigma_{11} & \Sigma_{12} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
+			\begin{pmatrix} D_{11}' & 0 \\ D_{12}' & I_{K-P,K-P} \end{pmatrix} \\
+		&= \begin{pmatrix} D_{11}\Sigma_{11} + D_{12}\Sigma_{21} & D_{11}\Sigma_{12} + D_{12}\Sigma_{22} \\ \Sigma_{21} & \Sigma_{22} \end{pmatrix}
+			\begin{pmatrix} D_{11}' & 0 \\ D_{12}' & I_{K-P,K-P} \end{pmatrix} \\
+		&= \begin{pmatrix} D_{11}\Sigma_{11}D_{11}' + D_{12}\Sigma_{21}D_{11}' + D_{11}\Sigma_{12}D_{12}' + D_{12}\Sigma_{22}D_{12}' & D_{11}\Sigma_{12} + D_{12}\Sigma_{22} \\
+		\Sigma_{21}D_{11}' + \Sigma_{22}D_{12}' & \Sigma_{22} \end{pmatrix} \\
+		&= \begin{pmatrix} D \Sigma D' & D_{11}\Sigma + D_{12}\Sigma_{22} \\ \Sigma_{21}D_{11}' + \Sigma_{22}D_{12}' & \Sigma_{22} \end{pmatrix}
+	\end{align*}
+	Taking the first $P$ elements of $\begin{pmatrix} D\mu \\ \mu_2 \end{pmatrix}$ and the upper-left $P \times P$ elements of $\begin{pmatrix} D \Sigma D' & D_{11}\Sigma + D_{12}\Sigma_{22} \\ \Sigma_{21}D_{11}' + \Sigma_{22}D_{12}' & \Sigma_{22} \end{pmatrix}$ shows that $Z$ is distributed normally with mean $D \mu$ and variance-covariance $D \Sigma D'$.
+
+	\item Let $C = \begin{pmatrix} I_{K_1} & -\Sigma_{12}\Sigma_{22}^{-1} \\ 0 & I_{K_2} \end{pmatrix}$ from question 3, where I found that $(CY)_1$ and $(CY)_2$ are independent, where $(CY)_1$ is the first $K_1$ elements of $CY$ and $(CY)_2$ the last $K_2$ elements of $CY$. In question 4 I found that $(CY)_1$ is distributed $\mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg)$. Since $(CY)_1$ and $(CY)_2$ are independent, and $(CY)_2 = Y_2$, this is also the conditional distribution of $(CY)_1$ given $Y_2$. That is,
+	\begin{align*}
+		\bigg( (Y_1 - \Sigma_{12}\Sigma_{22}^{-1} Y_2) | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
+		\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \Sigma_{12}\Sigma_{22}^{-1} y_2 + \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
+		\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1} (y_2 - \mu_2), \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
+	\end{align*}
 
 	\item Let $D = \begin{pmatrix} I_{K \times K} ^{(1)} & I_{K \times K} ^{(2)} & \cdots & I_{K \times K} ^{(N)}  \end{pmatrix}$; that is, $D$ is constructed by concatenating $N$ $K \times K$ identity matrices. Then,let $\mathbb{Y} = \begin{pmatrix} Y_1 & Y_2 & \cdots & Y_N \end{pmatrix}'$; that is, $\mathbb{Y}$ is constructed by stacking the $N$ independent random draws of $Y_i$ stacked together. Note that since each $Y_i$ is independently, identically, and normally distributed with mean $\mu$ and variance-covariance matrix $\Sigma$, $\mathbb{Y}$ is normally distributed with mean $\mu_{\mathbb{Y}}$ and $\Sigma_{\mathbb{Y}}$ such that 
 	\begin{align*}
