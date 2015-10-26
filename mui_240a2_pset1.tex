@@ -27,8 +27,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}
 	\item \textbf{What is the conditional distribution of $Z_N$ given $\theta$?}
-	
-	$Z_N$ is distributed with p.m.f.
 	\begin{align*}
 	    f_{Z_N | \Theta}(z | \theta) &= \begin{cases}
 	    \binom{n}{z} \theta^z (1-\theta)^{N - z} &\mbox{ if $z \in 0, 1, \cdots, N$} \\
@@ -38,18 +36,14 @@
 
 	\item \textbf{Calculate the joint distribution of $Z_N$ and $\theta$}
 	\begin{align*}
-	    f_{Z_N,\Theta}(z,\theta) &= f_{\Theta}(\theta) f_{Z_N | \Theta}(z|\theta) \\
-	    &= \frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} \binom{n}{z} \theta^z (1-\theta)^{N - z} \mbox{ if $z \in 0, 1, \cdots, N$ and $\theta \in [0,1]$}; 0 \mbox{ otherwise} 
+	    f_{Z_N,\Theta}(z,\theta) &= f_{\Theta}(\theta) f_{Z_N | \Theta}(z|\theta) = \begin{cases} \frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} \binom{n}{z} \theta^z (1-\theta)^{N - z} \mbox{ if $z \in 0, 1, \cdots, N$ and $\theta \in [0,1]$}\\ 0 \mbox{ otherwise} \end{cases}
 	\end{align*}
 
-	\item \textbf{Calculate the conditional distribution of $\theta$ given $Z_N$. What is the mean of this distribution, and why would you call it Posterior?}
-
-	By Bayes' Rule,
+	\item \textbf{Calculate the conditional distribution of $\theta$ given $Z_N$. What is the mean of this distribution, and why would you call it Posterior?} By Bayes' Rule,
 	\begin{align*}
 	    f_{\Theta | Z_N}(\theta | z) &= \frac{f_{\Theta, Z_N}(\theta,z)}{f_{Z_N}}\\
 	    &= \frac{\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} \binom{n}{z} \theta^z (1-\theta)^{N - z}}{\int_{0}^{1} \frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a,b)} \binom{n}{z} \theta^z (1-\theta)^{N - z} d\theta}\\
-	    &= \frac{\theta^{a-1}(1-\theta)^{b-1} \theta^z (1-\theta)^{N - z}}{\int_{0}^{1} \theta^{z+a-1}(1-\theta)^{N-z+b-1} d\theta} \\
-	    &= \frac{\theta^{z+a-1}(1-\theta)^{N-z+b-1}}{B(z+a,N-z+b)}
+	    &= \frac{\theta^{a-1}(1-\theta)^{b-1} \theta^z (1-\theta)^{N - z}}{\int_{0}^{1} \theta^{z+a-1}(1-\theta)^{N-z+b-1} d\theta} = \frac{\theta^{z+a-1}(1-\theta)^{N-z+b-1}}{B(z+a,N-z+b)}
 	\end{align*}
 	So $\Theta | Z_N$ is beta-distributed $(z+a,N-z+b)$, with a mean of $\frac{z+a}{z+a+N-z+b} = \frac{z+a}{N+a+b}$. The name is ``posterior'' because it is finding a distribution of $\theta$ \textbf{after}, or ``post'' drawing the data.
 
@@ -144,7 +138,7 @@
 	\begin{align*}
 		\bigg( (Y_1 - \Sigma_{12}\Sigma_{22}^{-1} Y_2) | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
 		\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \Sigma_{12}\Sigma_{22}^{-1} y_2 + \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1}\mu_2, \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
-		\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1} (y_2 - \mu_2), \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg) \\
+		\bigg( Y_1 | Y_2 = y_2 \bigg) &\sim \mathscr{N} \bigg( \mu_1 - \Sigma_{12}\Sigma_{22}^{-1} (y_2 - \mu_2), \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \bigg)
 	\end{align*}
 
 	\item Let $D = \begin{pmatrix} I_{K \times K} ^{(1)} & I_{K \times K} ^{(2)} & \cdots & I_{K \times K} ^{(N)}  \end{pmatrix}$; that is, $D$ is constructed by concatenating $N$ $K \times K$ identity matrices. Then,let $\mathbb{Y} = \begin{pmatrix} Y_1 & Y_2 & \cdots & Y_N \end{pmatrix}'$; that is, $\mathbb{Y}$ is constructed by stacking the $N$ independent random draws of $Y_i$ stacked together. Note that since each $Y_i$ is independently, identically, and normally distributed with mean $\mu$ and variance-covariance matrix $\Sigma$, $\mathbb{Y}$ is normally distributed with mean $\mu_{\mathbb{Y}}$ and $\Sigma_{\mathbb{Y}}$ such that 
@@ -203,6 +197,19 @@
 		&= Z'\sqrt{\Sigma} \sqrt{\Sigma}^{-1} \sqrt{\Sigma}^{-1} \sqrt{\Sigma} Z = Z' Z
 	\end{align*}
 	which is distributed as $\chi^2_{K}$.
+
+	\item Recall from the process of solving question 6 that I found that $\bar{Y_i} \sim \mathscr{N}(\mu,\frac{1}{N}\Sigma)$. Maintaining $H_0$ and using the result from question 4, the distribution of $D\bar{Y}$ is given by $\mathscr{N}(D\mu, \frac{1}{N} D\Sigma D')$.
+
+	The distribution of $W$ is given by 
+	\begin{align*}
+		W &= N (D \bar{Y} - d)' (D\Sigma D')^{-1} (D\bar{Y} - d) \\
+		&= N (D \bar{Y} - D\mu)' (D\Sigma D')^{-1} (D\bar{Y} - D\mu) \\
+		&= N (D(\bar{Y} - \mu))' (D\Sigma D')^{-1} D(\bar{Y} - \mu) \\
+		&= N (\bar{Y} - \mu)' D' D'^{-1} \Sigma^{-1} D^{-1} D(\bar{Y} - \mu) \\
+		&= N (\bar{Y} - \mu)' \Sigma^{-1} (\bar{Y} - \mu) \sim \chi^2_K \mbox{ from the previous problem.}
+	\end{align*}
+
+	If $H_0$ is true, the ex ante probability of $W > \chi_P^{2, 1-\alpha}$ is less than $\alpha = 0.05$. If I observed this $W$ in sample, I would conclude that the observed data given $H_0$ is very unlikely, and reject $H_0$.
 
 	\end{enumerate}
 \end{document}
