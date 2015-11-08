@@ -1,0 +1,109 @@
+\documentclass{article}[12pt]
+\usepackage{enumerate,amsfonts,graphicx,amsthm,amssymb,graphicx}
+\usepackage[mathscr]{euscript}
+\usepackage[hmargin=3cm,vmargin=3cm]{geometry}
+\usepackage[fleqn]{amsmath}
+
+% \setlength{\mathindent}{15pt}
+
+% BEGIN DOCUMENT
+
+\begin{document}
+
+\begin{center}
+	Preston Mui | mui@berkeley.edu
+
+	{\bf Econ-240a: Pset 2}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problems
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 1
+\section{Pencil and Paper Problems}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+    \item Let $f(z)$ be the probability density function of $Z$; that is, 
+    \begin{align*}
+        f(z) = (2\pi)^{-\frac{K}{2}} |\Sigma|^{-\frac{1}{2}} \exp \{ -\frac{1}{2} (z - \theta)' \Sigma^{-1} (z-\theta) \}
+    \end{align*}
+    Because the variance-covariance matrix is $\Sigma = \frac{\sigma^2}{N} I_K$:
+    \begin{align*}
+        f(z) &= \prod_{i=1}^K \bigg( 2\pi \frac{\sigma^2}{N} \bigg)^{-\frac{1}{2}} \exp \{ -\frac{1}{2\sigma^2 / N} (z_i - \theta_i)^2 \} \\
+        f_k(z) &= - \bigg( \frac{\sigma^2}{N} \bigg)^{-1} (z_k - \theta_k) \prod_{i=1}^K \bigg( 2\pi \frac{\sigma^2}{N} \bigg)^{-\frac{1}{2}} \exp \{ -\frac{1}{2\sigma^2 / N} (z_i - \theta_i)^2 \} \\
+        \nabla f(z) &= \sum_{i=1}^K - \bigg( \frac{\sigma^2}{N} \bigg)^{-1} (z_k - \theta_k) f(z) \\
+        - \bigg( \frac{\sigma^2}{N} \bigg) \nabla f(z) &= \sum_{i=1}^K (z_k - \theta_k) f(z) = [1_{1 \times K}] (z - \theta) f(z)
+        \end{align*}
+    Note that $\mathbb{E}\bigg[ g(Z)' (Z-\theta) \bigg] = \int_{\mathbb{R}^K} g(z)' (z-\theta) f(z) dz$. By integration of parts,
+    \begin{align*}
+        \mathbb{E}\bigg[ g(Z)' (Z-\theta) \bigg] &= - g(z) \frac{\sigma^2}{N} f(z) \bigg|_{\mathbb{R}^K} + \int_{\mathbb{R}^K} \nabla g(z) \frac{\sigma^2}{N} f(z)dz = \frac{\sigma^2}{N} \mathbb{E} \bigg[ \nabla g(Z) \bigg]
+    \end{align*}
+
+    \item Risk can be rewritten as
+    \begin{align*}
+        R(\hat{\theta}, \theta) &= E \bigg[ \| \hat{\theta} - Z + Z - \theta \|^2 \bigg] \\
+        &= E \bigg[ \| g(Z) + Z - \theta \|^2 \bigg] \\
+        &= E \bigg[ \sum_{k=1}^K \bigg( g(Z_k)^2 + 2 g(Z_k)(Z_k-\theta_k) + (Z_k - \theta_k)^2 \bigg) \bigg] \\
+        &= E \bigg[ \sum_{k=1}^K (\hat{\theta}-Z_k)^2 \bigg] + 2E \bigg[ \sum_{k=1}^K g(Z_k)(Z_k-\theta_k) \bigg] + E \bigg[ \sum_{k=1}^K (Z_k - \theta_k)^2 \bigg] \\
+        &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N}E [\nabla g(Z)] + E \bigg[ \sum_{k=1}^K (\hat{\theta}-Z_k)^2 \bigg]
+    \end{align*}
+    Because $\hat{R}(Z) = K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \nabla g(Z) + \sum_{k=1}^K (\hat{\theta}-Z_k)^2$, $E[\hat{R}(Z)] = R(\hat{\theta}, \theta)$
+
+    \item Observe that
+    \begin{align*}
+        g_k = \hat{\theta}_k - Z_k  &= \text{sgn}(Z_k) (|Z_k| - \lambda)_+ - Z_k \\
+        &=
+        \begin{cases}
+            Z_k - \lambda - Z_k = -\lambda &\mbox{ if $Z_k > \lambda$} \\
+            - Z_k &\mbox{ if $-\lambda \leq Z_k \leq \lambda$} \\
+            -( - Z_k - \lambda) - Z_k = \lambda &\mbox{ if $Z_k < -\lambda$}
+        \end{cases}\\
+        \implies \frac{\partial g_k}{\partial z_k} &=
+        \begin{cases}
+            0 \mbox{ if $|Z_k| > \lambda$} \\
+            -1 \mbox{ if $|Z_k| \leq \lambda$}
+        \end{cases} = -1(|Z_k| \leq \lambda)
+    \end{align*}
+    and that
+    \begin{align*}
+        (\hat{\theta_k} - Z_k)^2 &=
+        \begin{cases}
+            \lambda^2 &\mbox{ if $|Z_k| > \lambda$} \\
+            Z_k^2 &\mbox{ if $|Z_k| \leq \lambda$} \\
+        \end{cases}
+        = \min (Z_k^2, \lambda^2)
+    \end{align*}
+    Substituting into the SURE,
+    \begin{align*}
+        \hat{R}_{SURE} (Z, \lambda) &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \sum_{k=1}^K \frac{\partial g(Z)}{\partial Z_k} + \sum_{k=1}^K \bigg( \hat{\theta}_k- Z_k \bigg) \\
+        &= K \frac{\sigma^2}{N} - 2 \frac{\sigma^2}{N} \sum_{k=1}^K 1(|Z_k| \leq \lambda) + \sum_{k=1}^K \min (\hat{\theta}_k - Z_k )
+    \end{align*}
+
+    \item If $\hat{\theta}_k(M) = Z_k 1 (k \in M)$,
+    \begin{align*}
+        g(Z) = \hat{\theta}_k(M) - Z &=
+        \begin{cases}
+            0 &\mbox{ if $k \in M$} \\
+            -Z_k &\mbox{ if $k \notin M$}
+        \end{cases}\\
+        \implies \frac{\partial g(Z)}{\partial Z_k} &=
+        \begin{cases}
+            0 &\mbox{ if $k \in M$} \\
+            -1 &\mbox{ if $k \notin M$}
+        \end{cases} \\
+        &= -1\{ k \notin M\}
+    \end{align*}
+    So, the $\hat{R}_{SURE}$ is given by
+    \begin{align*}
+        \hat{R}_{SURE} &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \sum_{k=1}^K \frac{\partial g(Z)}{Z_k} + \sum_{k=1}^K (\hat{\theta}-Z_k)^2 \\
+        &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \sum_{k \in M^c} (-1) + \sum_{k \in M^c} (-Z_k)^2 \\
+        &= (K - 2(K - |M|)) \frac{\sigma^2}{N} + \sum_{k \in M^c} Z_k^2 \\
+        &= (|M| + K - |M|) \frac{\sigma^2}{N} + \sum_{k \in M^c} Z_k^2 \\
+        &= |M| \frac{\sigma^2}{N} + \sum_{k \in M^c} (Z_k^2 - \frac{\sigma^2}{N})
+    \end{align*}
+
+\end{enumerate}
+
+\end{document}
