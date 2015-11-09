@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="141.42mm" height="100mm" viewBox="0 0 141.42 100"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-17b242277dfe475287d31d2a42f3b858-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-17b242277dfe475287d31d2a42f3b858-element-2">
+    <text x="68.47" y="88.39" text-anchor="middle" dy="0.6em">Latitude</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-17b242277dfe475287d31d2a42f3b858-element-3">
+    <text x="19.96" y="81.72" text-anchor="middle" dy="0.6em">-50</text>
+    <text x="52.3" y="81.72" text-anchor="middle" dy="0.6em">0</text>
+    <text x="84.64" y="81.72" text-anchor="middle" dy="0.6em">50</text>
+    <text x="116.99" y="81.72" text-anchor="middle" dy="0.6em">100</text>
+  </g>
+  <g class="guide colorkey" id="fig-17b242277dfe475287d31d2a42f3b858-element-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-17b242277dfe475287d31d2a42f3b858-element-5">
+      <text x="122.8" y="46.66" dy="0.35em">Efromovich</text>
+      <text x="122.8" y="50.29" dy="0.35em">Data</text>
+    </g>
+    <g stroke="#000000" stroke-opacity="0.000" id="fig-17b242277dfe475287d31d2a42f3b858-element-6">
+      <rect x="119.99" y="45.76" width="1.81" height="1.81" fill="#008000"/>
+      <rect x="119.99" y="49.38" width="1.81" height="1.81" fill="#00BFFF"/>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="fig-17b242277dfe475287d31d2a42f3b858-element-7">
+      <text x="119.99" y="42.84">Legend</text>
+    </g>
+  </g>
+  <g clip-path="url(#fig-17b242277dfe475287d31d2a42f3b858-element-9)" id="fig-17b242277dfe475287d31d2a42f3b858-element-8">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="fig-17b242277dfe475287d31d2a42f3b858-element-10">
+      <rect x="17.96" y="12.61" width="101.03" height="68.1"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-17b242277dfe475287d31d2a42f3b858-element-11">
+      <path fill="none" d="M17.96,78.72 L 118.99 78.72"/>
+      <path fill="none" d="M17.96,65.89 L 118.99 65.89"/>
+      <path fill="none" d="M17.96,53.07 L 118.99 53.07"/>
+      <path fill="none" d="M17.96,40.25 L 118.99 40.25"/>
+      <path fill="none" d="M17.96,27.43 L 118.99 27.43"/>
+      <path fill="none" d="M17.96,14.61 L 118.99 14.61"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-17b242277dfe475287d31d2a42f3b858-element-12">
+      <path fill="none" d="M19.96,12.61 L 19.96 80.72"/>
+      <path fill="none" d="M52.3,12.61 L 52.3 80.72"/>
+      <path fill="none" d="M84.64,12.61 L 84.64 80.72"/>
+      <path fill="none" d="M116.99,12.61 L 116.99 80.72"/>
+    </g>
+    <g class="plotpanel" id="fig-17b242277dfe475287d31d2a42f3b858-element-13">
+      <g class="geometry" id="fig-17b242277dfe475287d31d2a42f3b858-element-14">
+        <g class="color_RGBA{Float32}(0.0f0,0.74736935f0,1.0f0,1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="fig-17b242277dfe475287d31d2a42f3b858-element-15">
+          <circle cx="76.05" cy="35.64" r="0.9"/>
+          <circle cx="46.58" cy="65.09" r="0.9"/>
+          <circle cx="56.42" cy="57.63" r="0.9"/>
+          <circle cx="38.37" cy="51.71" r="0.9"/>
+          <circle cx="60.1" cy="66.51" r="0.9"/>
+          <circle cx="50.12" cy="66.39" r="0.9"/>
+          <circle cx="59.24" cy="54.32" r="0.9"/>
+          <circle cx="62.06" cy="54.45" r="0.9"/>
+          <circle cx="55.1" cy="65.02" r="0.9"/>
+          <circle cx="59.01" cy="65.42" r="0.9"/>
+          <circle cx="44.75" cy="64.2" r="0.9"/>
+          <circle cx="49.92" cy="48.34" r="0.9"/>
+          <circle cx="71.7" cy="42.8" r="0.9"/>
+          <circle cx="52.54" cy="45.08" r="0.9"/>
+          <circle cx="60.88" cy="60.14" r="0.9"/>
+          <circle cx="56.63" cy="59.16" r="0.9"/>
+          <circle cx="59.85" cy="61.67" r="0.9"/>
+          <circle cx="60.23" cy="62.86" r="0.9"/>
+          <circle cx="55.86" cy="51.23" r="0.9"/>
+          <circle cx="51.97" cy="58.2" r="0.9"/>
+          <circle cx="33.16" cy="56.78" r="0.9"/>
+          <circle cx="40.04" cy="62.39" r="0.9"/>
+          <circle cx="42.07" cy="66.48" r="0.9"/>
+          <circle cx="60.39" cy="64.44" r="0.9"/>
+          <circle cx="63.9" cy="59.66" r="0.9"/>
+          <circle cx="39.21" cy="38.53" r="0.9"/>
+          <circle cx="74.03" cy="42.81" r="0.9"/>
+          <circle cx="40.34" cy="62.91" r="0.9"/>
+          <circle cx="40.67" cy="42.35" r="0.9"/>
+          <circle cx="61.28" cy="66.94" r="0.9"/>
+          <circle cx="56.53" cy="60.19" r="0.9"/>
+          <circle cx="38.75" cy="40.42" r="0.9"/>
+          <circle cx="50.99" cy="61.76" r="0.9"/>
+          <circle cx="61.86" cy="55.13" r="0.9"/>
+          <circle cx="49.28" cy="41.04" r="0.9"/>
+          <circle cx="57.93" cy="56.54" r="0.9"/>
+          <circle cx="59.18" cy="60.1" r="0.9"/>
+          <circle cx="33.46" cy="39.09" r="0.9"/>
+          <circle cx="61.39" cy="56.08" r="0.9"/>
+          <circle cx="35.13" cy="44.49" r="0.9"/>
+          <circle cx="50.91" cy="65.58" r="0.9"/>
+          <circle cx="56.31" cy="62.68" r="0.9"/>
+          <circle cx="76.12" cy="40.91" r="0.9"/>
+          <circle cx="52.45" cy="65.59" r="0.9"/>
+          <circle cx="51.93" cy="65.2" r="0.9"/>
+          <circle cx="43.93" cy="59.53" r="0.9"/>
+          <circle cx="40.74" cy="56.3" r="0.9"/>
+          <circle cx="60.83" cy="32.96" r="0.9"/>
+          <circle cx="63.84" cy="36.69" r="0.9"/>
+          <circle cx="80.59" cy="22.12" r="0.9"/>
+          <circle cx="58.73" cy="38.74" r="0.9"/>
+          <circle cx="64.31" cy="41.57" r="0.9"/>
+          <circle cx="61.21" cy="45.11" r="0.9"/>
+          <circle cx="60.14" cy="44.11" r="0.9"/>
+          <circle cx="61.76" cy="41.36" r="0.9"/>
+          <circle cx="64.55" cy="58.12" r="0.9"/>
+          <circle cx="61.48" cy="47.52" r="0.9"/>
+          <circle cx="63.98" cy="47.52" r="0.9"/>
+          <circle cx="63.14" cy="32.08" r="0.9"/>
+          <circle cx="60.2" cy="47.93" r="0.9"/>
+          <circle cx="58.26" cy="40.58" r="0.9"/>
+          <circle cx="64.09" cy="25.71" r="0.9"/>
+          <circle cx="59.04" cy="30.27" r="0.9"/>
+          <circle cx="74.53" cy="21.34" r="0.9"/>
+          <circle cx="28.58" cy="32.53" r="0.9"/>
+          <circle cx="42.48" cy="46.57" r="0.9"/>
+          <circle cx="39.65" cy="35.99" r="0.9"/>
+          <circle cx="30.6" cy="38.45" r="0.9"/>
+          <circle cx="55.4" cy="38.4" r="0.9"/>
+          <circle cx="50.97" cy="39.81" r="0.9"/>
+          <circle cx="56.03" cy="50.19" r="0.9"/>
+          <circle cx="35.75" cy="44.07" r="0.9"/>
+          <circle cx="44.67" cy="39.81" r="0.9"/>
+          <circle cx="55.93" cy="38.88" r="0.9"/>
+          <circle cx="29.78" cy="35.18" r="0.9"/>
+          <circle cx="58.67" cy="30.36" r="0.9"/>
+          <circle cx="69.14" cy="29.68" r="0.9"/>
+          <circle cx="67.75" cy="47.77" r="0.9"/>
+          <circle cx="71.42" cy="57.42" r="0.9"/>
+          <circle cx="66.99" cy="27.72" r="0.9"/>
+          <circle cx="68.65" cy="52.8" r="0.9"/>
+          <circle cx="48.06" cy="49.58" r="0.9"/>
+          <circle cx="75.19" cy="36.99" r="0.9"/>
+          <circle cx="73.06" cy="26.68" r="0.9"/>
+          <circle cx="75.4" cy="28.16" r="0.9"/>
+          <circle cx="72.74" cy="32.58" r="0.9"/>
+          <circle cx="76.59" cy="33.72" r="0.9"/>
+          <circle cx="71.27" cy="28.18" r="0.9"/>
+          <circle cx="54.42" cy="38.25" r="0.9"/>
+          <circle cx="63.74" cy="66.82" r="0.9"/>
+          <circle cx="65.53" cy="32.33" r="0.9"/>
+          <circle cx="72.47" cy="47.65" r="0.9"/>
+          <circle cx="61.31" cy="47.87" r="0.9"/>
+          <circle cx="68.67" cy="25.52" r="0.9"/>
+          <circle cx="67.22" cy="29.54" r="0.9"/>
+          <circle cx="53.18" cy="27.76" r="0.9"/>
+          <circle cx="56.74" cy="45.28" r="0.9"/>
+          <circle cx="73.94" cy="31.9" r="0.9"/>
+          <circle cx="68.64" cy="31.7" r="0.9"/>
+          <circle cx="61.21" cy="45.09" r="0.9"/>
+          <circle cx="67.43" cy="27.67" r="0.9"/>
+          <circle cx="62.15" cy="41.22" r="0.9"/>
+          <circle cx="83.5" cy="25.74" r="0.9"/>
+          <circle cx="85.19" cy="23.63" r="0.9"/>
+          <circle cx="74.99" cy="31.69" r="0.9"/>
+          <circle cx="84.11" cy="41.28" r="0.9"/>
+          <circle cx="88.34" cy="26.09" r="0.9"/>
+          <circle cx="91.25" cy="25.29" r="0.9"/>
+          <circle cx="83.91" cy="23.92" r="0.9"/>
+          <circle cx="83.46" cy="23.91" r="0.9"/>
+          <circle cx="76.92" cy="31.05" r="0.9"/>
+          <circle cx="82.98" cy="36.49" r="0.9"/>
+          <circle cx="93.63" cy="25.38" r="0.9"/>
+          <circle cx="87.63" cy="28.39" r="0.9"/>
+          <circle cx="81.68" cy="23.66" r="0.9"/>
+          <circle cx="84.5" cy="21.52" r="0.9"/>
+          <circle cx="75.52" cy="31.2" r="0.9"/>
+          <circle cx="85.86" cy="24.11" r="0.9"/>
+          <circle cx="91.1" cy="24.87" r="0.9"/>
+          <circle cx="84.8" cy="39.73" r="0.9"/>
+          <circle cx="77.41" cy="34.23" r="0.9"/>
+          <circle cx="81.1" cy="49.28" r="0.9"/>
+          <circle cx="76.49" cy="26.25" r="0.9"/>
+          <circle cx="90.65" cy="24.41" r="0.9"/>
+          <circle cx="82.97" cy="23.07" r="0.9"/>
+          <circle cx="78.95" cy="40.86" r="0.9"/>
+          <circle cx="85.62" cy="25.42" r="0.9"/>
+          <circle cx="88.32" cy="32.54" r="0.9"/>
+          <circle cx="80.62" cy="36.78" r="0.9"/>
+          <circle cx="31.46" cy="23.53" r="0.9"/>
+          <circle cx="40.77" cy="37.98" r="0.9"/>
+          <circle cx="28.44" cy="25.6" r="0.9"/>
+          <circle cx="48.03" cy="54.09" r="0.9"/>
+          <circle cx="46.08" cy="42.84" r="0.9"/>
+        </g>
+      </g>
+      <g stroke-width="0.3" fill="#000000" fill-opacity="0.000" class="geometry" stroke-dasharray="none" stroke="#008000" id="fig-17b242277dfe475287d31d2a42f3b858-element-16">
+        <path fill="none" d="M28.44,30.02 L 28.58 30.39 29.78 33.39 30.6 35.31 31.46 37.2 33.16 40.58 33.46 41.13 35.13 43.95 35.75 44.9 38.37 48.27 38.75 48.68 39.21 49.16 39.65 49.59 40.04 49.95 40.34 50.21 40.67 50.49 40.74 50.54 40.77 50.57 42.07 51.52 42.48 51.77 43.93 52.53 44.67 52.83 44.75 52.86 46.08 53.24 46.58 53.33 48.03 53.48 48.06 53.48 49.28 53.45 49.92 53.38 50.12 53.36 50.91 53.21 50.97 53.2 50.99 53.2 51.93 52.96 51.97 52.94 52.45 52.8 52.54 52.76 53.18 52.54 54.42 52.01 55.1 51.68 55.4 51.53 55.86 51.28 55.93 51.24 56.03 51.19 56.31 51.03 56.42 50.96 56.53 50.9 56.63 50.84 56.74 50.77 57.93 50.02 58.26 49.8 58.67 49.52 58.73 49.47 59.01 49.28 59.04 49.26 59.18 49.16 59.24 49.11 59.85 48.66 60.1 48.48 60.14 48.45 60.2 48.4 60.23 48.37 60.39 48.25 60.83 47.91 60.88 47.87 61.21 47.61 61.21 47.61 61.28 47.56 61.31 47.53 61.39 47.47 61.48 47.39 61.76 47.16 61.86 47.08 62.06 46.91 62.15 46.84 63.14 46 63.74 45.48 63.84 45.39 63.9 45.34 63.98 45.27 64.09 45.17 64.31 44.98 64.55 44.77 65.53 43.88 66.99 42.53 67.22 42.31 67.43 42.11 67.75 41.81 68.64 40.97 68.65 40.96 68.67 40.94 69.14 40.5 71.27 38.48 71.42 38.34 71.7 38.08 72.47 37.36 72.74 37.11 73.06 36.82 73.94 36.01 74.03 35.93 74.53 35.48 74.99 35.06 75.19 34.89 75.4 34.71 75.52 34.61 76.05 34.14 76.12 34.09 76.49 33.77 76.59 33.68 76.92 33.41 77.41 33 78.95 31.79 80.59 30.6 80.62 30.58 81.1 30.25 81.68 29.88 82.97 29.1 82.98 29.1 83.46 28.83 83.5 28.81 83.91 28.6 84.11 28.49 84.5 28.3 84.8 28.16 85.19 27.99 85.62 27.81 85.86 27.72 87.63 27.15 88.32 27 88.34 26.99 90.65 26.75 91.1 26.76 91.25 26.77 93.63 27.16"/>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-17b242277dfe475287d31d2a42f3b858-element-17">
+    <text x="16.96" y="78.72" text-anchor="end" dy="0.35em">6</text>
+    <text x="16.96" y="65.89" text-anchor="end" dy="0.35em">7</text>
+    <text x="16.96" y="53.07" text-anchor="end" dy="0.35em">8</text>
+    <text x="16.96" y="40.25" text-anchor="end" dy="0.35em">9</text>
+    <text x="16.96" y="27.43" text-anchor="end" dy="0.35em">10</text>
+    <text x="16.96" y="14.61" text-anchor="end" dy="0.35em">11</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-17b242277dfe475287d31d2a42f3b858-element-18">
+    <text x="8.81" y="44.66" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 46.66)">logY / L</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-17b242277dfe475287d31d2a42f3b858-element-19">
+    <text x="68.47" y="10.61" text-anchor="middle">Actual Data vs. Efromovich Shrinkage Estimator, K = 12</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-17b242277dfe475287d31d2a42f3b858-element-9">
+  <path d="M17.96,12.61 L 118.99 12.61 118.99 80.72 17.96 80.72" />
+</clipPath
+></defs>
+</svg>

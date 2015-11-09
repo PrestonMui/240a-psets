@@ -80,6 +80,7 @@
         \hat{R}_{SURE} (Z, \lambda) &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \sum_{k=1}^K \frac{\partial g(Z)}{\partial Z_k} + \sum_{k=1}^K \bigg( \hat{\theta}_k- Z_k \bigg) \\
         &= K \frac{\sigma^2}{N} - 2 \frac{\sigma^2}{N} \sum_{k=1}^K 1(|Z_k| \leq \lambda) + \sum_{k=1}^K \min (\hat{\theta}_k - Z_k )
     \end{align*}
+    One concrete prediction problem where I might want to use the soft estimator: Say I am trying to predict firm's price changes using data on their marginal costs and some other set of predictors, and I think there is a lot of noise in the measurement of marginal costs (and maybe other variables as well). Then, I may want to use the soft estimator, because the maximum likelihood estimator will overestimate the magnitude of the coefficient, so I will want to pull it back towards 0.
 
     \item If $\hat{\theta}_k(M) = Z_k 1 (k \in M)$,
     \begin{align*}
@@ -99,8 +100,8 @@
     \begin{align*}
         \hat{R}_{SURE} &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \sum_{k=1}^K \frac{\partial g(Z)}{Z_k} + \sum_{k=1}^K (\hat{\theta}-Z_k)^2 \\
         &= K \frac{\sigma^2}{N} + 2 \frac{\sigma^2}{N} \sum_{k \in M^c} (-1) + \sum_{k \in M^c} (-Z_k)^2 \\
-        &= (K - 2(K - |M|)) \frac{\sigma^2}{N} + \sum_{k \in M^c} Z_k^2 \\
-        &= (|M| + K - |M|) \frac{\sigma^2}{N} + \sum_{k \in M^c} Z_k^2 \\
+        &= \bigg(K - 2(K - |M|)\bigg) \frac{\sigma^2}{N} + \sum_{k \in M^c} Z_k^2 \\
+        &= \bigg(|M| - (K - |M|)\bigg) \frac{\sigma^2}{N} + \sum_{k \in M^c} Z_k^2 \\
         &= |M| \frac{\sigma^2}{N} + \sum_{k \in M^c} (Z_k^2 - \frac{\sigma^2}{N})
     \end{align*}
 
