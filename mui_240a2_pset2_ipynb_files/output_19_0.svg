@@ -9,34 +9,34 @@
      stroke-width="0.3"
      font-size="3.88"
 >
-<g class="plotroot xscalable yscalable" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-1">
-  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-2">
+<g class="plotroot xscalable yscalable" id="fig-5b10031480c64318b3a339115242f8d7-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-5b10031480c64318b3a339115242f8d7-element-2">
     <text x="66.43" y="88.39" text-anchor="middle" dy="0.6em">X0te</text>
   </g>
-  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-3">
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-5b10031480c64318b3a339115242f8d7-element-3">
     <text x="19.96" y="81.72" text-anchor="middle" dy="0.6em">-50</text>
     <text x="50.94" y="81.72" text-anchor="middle" dy="0.6em">0</text>
     <text x="81.92" y="81.72" text-anchor="middle" dy="0.6em">50</text>
     <text x="112.89" y="81.72" text-anchor="middle" dy="0.6em">100</text>
   </g>
-  <g class="guide colorkey" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-4">
-    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-5">
+  <g class="guide colorkey" id="fig-5b10031480c64318b3a339115242f8d7-element-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="fig-5b10031480c64318b3a339115242f8d7-element-5">
       <text x="118.71" y="46.66" dy="0.35em">Soft Threshold</text>
       <text x="118.71" y="50.29" dy="0.35em">Data</text>
     </g>
-    <g stroke="#000000" stroke-opacity="0.000" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-6">
+    <g stroke="#000000" stroke-opacity="0.000" id="fig-5b10031480c64318b3a339115242f8d7-element-6">
       <rect x="115.89" y="45.76" width="1.81" height="1.81" fill="#008000"/>
       <rect x="115.89" y="49.38" width="1.81" height="1.81" fill="#00BFFF"/>
     </g>
-    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-7">
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="fig-5b10031480c64318b3a339115242f8d7-element-7">
       <text x="115.89" y="42.84">Legend</text>
     </g>
   </g>
-  <g clip-path="url(#fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-9)" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-8">
-    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-10">
+  <g clip-path="url(#fig-5b10031480c64318b3a339115242f8d7-element-9)" id="fig-5b10031480c64318b3a339115242f8d7-element-8">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="fig-5b10031480c64318b3a339115242f8d7-element-10">
       <rect x="17.96" y="12.61" width="96.94" height="68.1"/>
     </g>
-    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-11">
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-5b10031480c64318b3a339115242f8d7-element-11">
       <path fill="none" d="M17.96,78.72 L 114.89 78.72"/>
       <path fill="none" d="M17.96,65.89 L 114.89 65.89"/>
       <path fill="none" d="M17.96,53.07 L 114.89 53.07"/>
@@ -44,15 +44,15 @@
       <path fill="none" d="M17.96,27.43 L 114.89 27.43"/>
       <path fill="none" d="M17.96,14.61 L 114.89 14.61"/>
     </g>
-    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-12">
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-5b10031480c64318b3a339115242f8d7-element-12">
       <path fill="none" d="M19.96,12.61 L 19.96 80.72"/>
       <path fill="none" d="M50.94,12.61 L 50.94 80.72"/>
       <path fill="none" d="M81.92,12.61 L 81.92 80.72"/>
       <path fill="none" d="M112.89,12.61 L 112.89 80.72"/>
     </g>
-    <g class="plotpanel" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-13">
-      <g class="geometry" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-14">
-        <g class="color_RGBA{Float32}(0.0f0,0.74736935f0,1.0f0,1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-15">
+    <g class="plotpanel" id="fig-5b10031480c64318b3a339115242f8d7-element-13">
+      <g class="geometry" id="fig-5b10031480c64318b3a339115242f8d7-element-14">
+        <g class="color_RGBA{Float32}(0.0f0,0.74736935f0,1.0f0,1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="fig-5b10031480c64318b3a339115242f8d7-element-15">
           <circle cx="73.69" cy="35.64" r="0.9"/>
           <circle cx="45.46" cy="65.09" r="0.9"/>
           <circle cx="54.88" cy="57.63" r="0.9"/>
@@ -189,12 +189,12 @@
           <circle cx="44.97" cy="42.84" r="0.9"/>
         </g>
       </g>
-      <g stroke-width="0.3" fill="#000000" fill-opacity="0.000" class="geometry" stroke-dasharray="none" stroke="#008000" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-16">
+      <g stroke-width="0.3" fill="#000000" fill-opacity="0.000" class="geometry" stroke-dasharray="none" stroke="#008000" id="fig-5b10031480c64318b3a339115242f8d7-element-16">
         <path fill="none" d="M28.08,32.95 L 28.21 33.26 29.36 35.81 30.15 37.44 30.98 39.05 32.6 41.92 32.89 42.39 34.49 44.79 35.09 45.59 37.59 48.47 37.95 48.81 38.4 49.22 38.82 49.59 39.19 49.89 39.48 50.11 39.8 50.35 39.86 50.4 39.89 50.42 41.14 51.23 41.53 51.45 42.92 52.1 43.63 52.35 43.71 52.38 44.97 52.7 45.46 52.79 46.85 52.91 46.87 52.91 48.05 52.89 48.65 52.83 48.85 52.81 49.6 52.69 49.66 52.68 49.68 52.67 50.58 52.47 50.62 52.46 51.08 52.33 51.17 52.3 51.78 52.11 52.96 51.66 53.62 51.38 53.9 51.25 54.34 51.04 54.41 51 54.51 50.95 54.77 50.82 54.88 50.76 54.99 50.71 55.08 50.66 55.19 50.6 56.33 49.95 56.64 49.77 57.04 49.52 57.1 49.49 57.37 49.31 57.39 49.3 57.53 49.21 57.59 49.17 58.17 48.79 58.4 48.63 58.44 48.6 58.5 48.56 58.53 48.54 58.69 48.43 59.1 48.14 59.15 48.11 59.47 47.88 59.47 47.88 59.53 47.83 59.56 47.81 59.64 47.76 59.73 47.69 60 47.49 60.09 47.43 60.29 47.28 60.37 47.22 61.32 46.49 61.89 46.04 61.99 45.96 62.04 45.92 62.12 45.86 62.23 45.77 62.44 45.61 62.67 45.42 63.6 44.65 65 43.48 65.23 43.29 65.43 43.12 65.73 42.86 66.59 42.13 66.6 42.12 66.62 42.1 67.06 41.72 69.11 39.95 69.25 39.82 69.52 39.59 70.25 38.97 70.52 38.74 70.82 38.49 71.67 37.77 71.75 37.7 72.23 37.3 72.67 36.94 72.86 36.78 73.06 36.62 73.17 36.53 73.69 36.11 73.75 36.07 74.11 35.78 74.2 35.71 74.52 35.46 74.99 35.1 76.46 34 78.03 32.92 78.06 32.9 78.52 32.6 79.08 32.25 80.31 31.53 80.32 31.53 80.78 31.28 80.82 31.25 81.21 31.05 81.4 30.95 81.78 30.77 82.07 30.63 82.43 30.47 82.85 30.29 83.08 30.19 84.77 29.6 85.43 29.42 85.46 29.42 87.66 29.05 88.1 29.02 88.24 29.02 90.52 29.16"/>
       </g>
     </g>
   </g>
-  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-17">
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-5b10031480c64318b3a339115242f8d7-element-17">
     <text x="16.96" y="78.72" text-anchor="end" dy="0.35em">6</text>
     <text x="16.96" y="65.89" text-anchor="end" dy="0.35em">7</text>
     <text x="16.96" y="53.07" text-anchor="end" dy="0.35em">8</text>
@@ -202,15 +202,15 @@
     <text x="16.96" y="27.43" text-anchor="end" dy="0.35em">10</text>
     <text x="16.96" y="14.61" text-anchor="end" dy="0.35em">11</text>
   </g>
-  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-18">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-5b10031480c64318b3a339115242f8d7-element-18">
     <text x="8.81" y="44.66" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 46.66)">Y0tc</text>
   </g>
-  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-19">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-5b10031480c64318b3a339115242f8d7-element-19">
     <text x="66.43" y="10.61" text-anchor="middle">Actual Data vs. Soft Threshold Estimator, K = 12</text>
   </g>
 </g>
 <defs>
-<clipPath id="fig-73dcd4d50ec64914ae4f014f5dafdcc1-element-9">
+<clipPath id="fig-5b10031480c64318b3a339115242f8d7-element-9">
   <path d="M17.96,12.61 L 114.89 12.61 114.89 80.72 17.96 80.72" />
 </clipPath
 ></defs>
