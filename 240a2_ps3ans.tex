@@ -1,4 +1,4 @@
-\documentclass{article}[12pt]
+\documentclass{article}[14pt]
 \usepackage{enumerate,amsfonts,graphicx,amsthm,amssymb,graphicx}
 \usepackage[mathscr]{euscript}
 \usepackage[hmargin=3cm,vmargin=3cm]{geometry}
@@ -29,38 +29,69 @@
 
     \item Let $Z = \begin{pmatrix} X', W' \end{pmatrix}'$. Then, 
     \begin{align*}
-        \mathbb{E}^*[Y | X, W] = \mathbb{E}^*[Y|Z] &= \mathbb{E}[Y] + \sigma(Y,Z) \mathbb{V}(Z)^{-1} (Z - \mathbb{E}[Z])
+        E^*[Y | X, W] = E^*[Y|Z] &= E[Y] + \sigma(Y,Z) V(Z)^{-1} (Z - E[Z])
     \end{align*}
-    Because $W$ and $X$ are independent, $\mathbb{V}(Z) = \begin{pmatrix} \mathbb{V}(X) & 0 \\ 0 & \mathbb{V}(W) \end{pmatrix}$. So, 
+    Because $W$ and $X$ are independent, $V(Z) = \begin{pmatrix} V(X) & 0 \\ 0 & V(W) \end{pmatrix}$. So, 
     \begin{align*}
-        \mathbb{E}^*[Y | X, W] &= \mathbb{E}[Y] +
+        E^*[Y | X, W] &= E[Y] +
             \begin{pmatrix} \sigma(Y,X) & \sigma(Y,W) \end{pmatrix}
-            \begin{pmatrix} \mathbb{V}(X)^{-1} & 0 \\ 0 & \mathbb{V}(W)^{-1} \end{pmatrix}
-            \begin{pmatrix} X - \mathbb{E}[X] \\ W - \mathbb{E}[W] \end{pmatrix} \\
-        &=  \mathbb{E}[Y] + \begin{pmatrix} \sigma(Y,X) & \sigma(Y,W) \end{pmatrix}
-            \begin{pmatrix} \mathbb{V}(X)^{-1} (X - \mathbb{E}[X]) \\ \mathbb{V}(W)^{-1} (W - \mathbb{E}[W]) \end{pmatrix} \\
-        &=  \mathbb{E}[Y] + \sigma(Y,X) \mathbb{V}(X)^{-1}(X - \mathbb{E}[X]) + \sigma(Y,W) \mathbb{V}(W)^{-1} (W - \mathbb{E}[W])\\
-        &= \mathbb{E}[Y] + \mathbb{E}^*[Y|X] - \mathbb{E}[Y] + \mathbb{E}^*[Y|W] - \mathbb{E}[Y] \\
-        &= \mathbb{E}^*[Y|X] + \mathbb{E}^*[Y|W] - \mathbb{E}[Y]
+            \begin{pmatrix} V(X)^{-1} & 0 \\ 0 & V(W)^{-1} \end{pmatrix}
+            \begin{pmatrix} X - E[X] \\ W - E[W] \end{pmatrix} \\
+        &=  E[Y] + \begin{pmatrix} \sigma(Y,X) & \sigma(Y,W) \end{pmatrix}
+            \begin{pmatrix} V(X)^{-1} (X - E[X]) \\ V(W)^{-1} (W - E[W]) \end{pmatrix} \\
+        &=  E[Y] + \sigma(Y,X) V(X)^{-1}(X - E[X]) + \sigma(Y,W) V(W)^{-1} (W - E[W])\\
+        &= E[Y] + E^*[Y|X] - E[Y] + E^*[Y|W] - E[Y] \\
+        &= E^*[Y|X] + E^*[Y|W] - E[Y]
     \end{align*}
 
     \item Using the formula for the best linear predictor $\beta_0$
     \begin{align*}
-        |\beta_0| &= \frac{ | \sigma(X,Y) | }{\mathbb{V}(X)} \\
-        &\leq \frac{ \sqrt{\mathbb{V}(X)\mathbb{V}(Y)} }{\mathbb{V}(X)} \\
-        &= \frac{ \sqrt{\mathbb{V}(Y)} }{ \sqrt{\mathbb{V}(X)}} = 1
+        |\beta_0| &= \frac{ | \sigma(X,Y) | }{V(X)} \\
+        &\leq \frac{ \sqrt{V(X)V(Y)} }{V(X)} \\
+        &= \frac{ \sqrt{V(Y)} }{ \sqrt{V(X)}} = 1
     \end{align*}
+    In the example of father's height and child's height, the interpretation is that taller fathers may have taller children, but these effects cannot be amplified over generations.
 
     \item From the formula of variance and applying the Law of Iterated Expectations,
     \begin{align*}
-        \mathbb{V}(Y) &= \mathbb{E} [Y^2] - \mathbb{E}[Y]^2 \\
-        &= \mathbb{E} [ \mathbb{E} [Y^2|X] ] - \mathbb{E} [\mathbb{E}[Y|X]]^2 \\
-        &= \mathbb{E} [ \mathbb{V}(Y|X) + \mathbb{E}[Y|X]^2 ] - \mathbb{E} [\mathbb{E}[Y|X]]^2 \\
-        &= \mathbb{E} [ \mathbb{V}(Y|X) ] + \mathbb{E} [ \mathbb{E}[Y|X]^2] - [\mathbb{E}[Y|X]]^2 \\
-        &= \mathbb{E} [ \mathbb{V}(Y|X) ] + \mathbb{V} ( \mathbb{E} [Y|X])
+        V(Y) &= E [Y^2] - E[Y]^2 \\
+        &= E [ E [Y^2|X] ] - E [E[Y|X]]^2 \\
+        &= E [ V(Y|X) + E[Y|X]^2 ] - E [E[Y|X]]^2 \\
+        &= E [ V(Y|X) ] + E [ E[Y|X]^2] - [E[Y|X]]^2 \\
+        &= E [ V(Y|X) ] + V ( E [Y|X])
     \end{align*}
 
-    \item 
+    \item
+    \begin{enumerate}[(a)]
+        \item Using the formula for the best linear predictor, $E^*[m(Z) | X]= \delta_0 + \xi_0 X$, and the law of iterated such that $E[m(Z)] = E[E[X|Z]] = E[X]$,
+        \begin{align*}
+            \xi_0 &= \sigma\Big(m(Z),X\Big) V(X)^{-1} \\
+            &= E\bigg[\Big(m(Z) - E[m(Z)]\Big)\Big(X - E[X]\Big)\bigg] \Big( E[V(X|Z)] + V(E[X|Z]) \Big)^{-1}\\
+            &= E\bigg[\Big(E[X|Z] - E[X]\Big)\Big(X - E[X]\Big)\bigg] \Big( E[V(X|Z)] + V(E[X|Z]) \Big)^{-1} \\
+            &= E\bigg[\Big(E[X|Z] - E[E[X|Z]]\Big)\Big(X - E[E[X|Z]]\Big)\bigg] \Big( E[V(X|Z)] + V(E[X|Z]) \Big)^{-1} \\
+            &= E\bigg[\Big(E[X|Z] - E[E[X|Z]]\Big)^2\bigg] \Big( E[V(X|Z)] + V(E[X|Z]) \Big)^{-1} \\
+            &= V\Big(E[X|Z]\Big) \Big( E[V(X|Z)] + V(E[X|Z]) \Big)^{-1}
+        \end{align*}
+        By the best linear predictor, $\delta_0 = E[m(Z)] - \xi_0 E[X] = (1-\xi_0) E[X]$.
+
+        \item $\xi_0$ is the fraction of total variance of the parents' income that comes from variation of average income between individual neighborhoods, with the rest of the variance due to variation of income within individual neighborhoods. That is, the higher $xi_0$ is, the more stratified residential areas are by income.
+
+        \item First note that $\rho = \frac{\sigma(A,X)}{\sigma_A \sigma_X}$, and that the best linear predictor of $A$ on $X$ is given by
+        \begin{align*}
+            E^*[A|X] &= \mu_A + \sigma(A,X)(\sigma_A^2)^{-1} (X-\mu_x) \\
+            &= \mu_A + \frac{\rho \sigma_A}{\sigma_X} (X-\mu_x)
+        \end{align*}
+        So, taking the linear prediction of $Y$ with respect to $X$ and substituting the results from above:
+        \begin{align*}
+            E^*[Y|X,m(Z),A] &= \alpha_0 + \beta_0 X + \gamma_0 m(Z) + A \\
+            E^*[Y|X] &= \alpha_0 + \beta_0 X + \gamma_0 E^*[m(Z)|X] + E^*[A|X] \\
+            E^*[Y|X] &= \alpha_0 + \beta_0 X + \gamma_0((1-\xi_0)\mu_X + \xi_0 X) + \mu_A + \frac{\rho \sigma_A}{\sigma_X} (X-\mu_x) \\
+            E^*[Y|X] &= \alpha_0 + \gamma_0(1-\xi_0)\mu_X + \Big( \mu_A - \frac{\rho \sigma_A}{\sigma_X}\mu_x\Big) + \Big( \beta_0 + \gamma_0 \xi_0 + \rho \frac{\sigma_A}{\sigma_X}\Big) X
+        \end{align*}
+
+        \item If there is more income stratification in New York than San Francisco, $\xi_{NYC} > \xi_{SF}$. So, the intercept for New York will be lower than that of San Francisco, but the coefficient on $X$ will be higher in New York.
+
+    \end{enumerate}
 
 \end{enumerate}
 
