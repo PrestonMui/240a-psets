@@ -1,0 +1,67 @@
+\documentclass{article}[12pt]
+\usepackage{enumerate,amsfonts,graphicx,amsthm,amssymb,graphicx}
+\usepackage[mathscr]{euscript}
+\usepackage[hmargin=3cm,vmargin=3cm]{geometry}
+\usepackage[fleqn]{amsmath}
+
+% \setlength{\mathindent}{15pt}
+
+% BEGIN DOCUMENT
+
+\begin{document}
+
+\begin{center}
+	Preston Mui | mui@berkeley.edu
+
+	{\bf Econ-240a: Pset 3}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problems
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section 1
+\setcounter{section}{1}
+\section{Linear Regression (theory)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+
+    \item Let $Z = \begin{pmatrix} X', W' \end{pmatrix}'$. Then, 
+    \begin{align*}
+        \mathbb{E}^*[Y | X, W] = \mathbb{E}^*[Y|Z] &= \mathbb{E}[Y] + \sigma(Y,Z) \mathbb{V}(Z)^{-1} (Z - \mathbb{E}[Z])
+    \end{align*}
+    Because $W$ and $X$ are independent, $\mathbb{V}(Z) = \begin{pmatrix} \mathbb{V}(X) & 0 \\ 0 & \mathbb{V}(W) \end{pmatrix}$. So, 
+    \begin{align*}
+        \mathbb{E}^*[Y | X, W] &= \mathbb{E}[Y] +
+            \begin{pmatrix} \sigma(Y,X) & \sigma(Y,W) \end{pmatrix}
+            \begin{pmatrix} \mathbb{V}(X)^{-1} & 0 \\ 0 & \mathbb{V}(W)^{-1} \end{pmatrix}
+            \begin{pmatrix} X - \mathbb{E}[X] \\ W - \mathbb{E}[W] \end{pmatrix} \\
+        &=  \mathbb{E}[Y] + \begin{pmatrix} \sigma(Y,X) & \sigma(Y,W) \end{pmatrix}
+            \begin{pmatrix} \mathbb{V}(X)^{-1} (X - \mathbb{E}[X]) \\ \mathbb{V}(W)^{-1} (W - \mathbb{E}[W]) \end{pmatrix} \\
+        &=  \mathbb{E}[Y] + \sigma(Y,X) \mathbb{V}(X)^{-1}(X - \mathbb{E}[X]) + \sigma(Y,W) \mathbb{V}(W)^{-1} (W - \mathbb{E}[W])\\
+        &= \mathbb{E}[Y] + \mathbb{E}^*[Y|X] - \mathbb{E}[Y] + \mathbb{E}^*[Y|W] - \mathbb{E}[Y] \\
+        &= \mathbb{E}^*[Y|X] + \mathbb{E}^*[Y|W] - \mathbb{E}[Y]
+    \end{align*}
+
+    \item Using the formula for the best linear predictor $\beta_0$
+    \begin{align*}
+        |\beta_0| &= \frac{ | \sigma(X,Y) | }{\mathbb{V}(X)} \\
+        &\leq \frac{ \sqrt{\mathbb{V}(X)\mathbb{V}(Y)} }{\mathbb{V}(X)} \\
+        &= \frac{ \sqrt{\mathbb{V}(Y)} }{ \sqrt{\mathbb{V}(X)}} = 1
+    \end{align*}
+
+    \item From the formula of variance and applying the Law of Iterated Expectations,
+    \begin{align*}
+        \mathbb{V}(Y) &= \mathbb{E} [Y^2] - \mathbb{E}[Y]^2 \\
+        &= \mathbb{E} [ \mathbb{E} [Y^2|X] ] - \mathbb{E} [\mathbb{E}[Y|X]]^2 \\
+        &= \mathbb{E} [ \mathbb{V}(Y|X) + \mathbb{E}[Y|X]^2 ] - \mathbb{E} [\mathbb{E}[Y|X]]^2 \\
+        &= \mathbb{E} [ \mathbb{V}(Y|X) ] + \mathbb{E} [ \mathbb{E}[Y|X]^2] - [\mathbb{E}[Y|X]]^2 \\
+        &= \mathbb{E} [ \mathbb{V}(Y|X) ] + \mathbb{V} ( \mathbb{E} [Y|X])
+    \end{align*}
+
+    \item 
+
+\end{enumerate}
+
+\end{document}
