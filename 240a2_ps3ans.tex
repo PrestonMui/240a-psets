@@ -46,24 +46,21 @@
 
     \item Using the formula for the best linear predictor $\beta_0$
     \begin{align*}
-        |\beta_0| &= \frac{ | \sigma(X,Y) | }{V(X)} \\
-        &\leq \frac{ \sqrt{V(X)V(Y)} }{V(X)} \\
-        &= \frac{ \sqrt{V(Y)} }{ \sqrt{V(X)}} = 1
+        |\beta_0| &= \frac{ | \sigma(X,Y) | }{V(X)} \leq \frac{ \sqrt{V(X)V(Y)} }{V(X)} = \frac{ \sqrt{V(Y)} }{ \sqrt{V(X)}} = 1
     \end{align*}
-    In the example of father's height and child's height, the interpretation is that taller fathers may have taller children, but these effects cannot be amplified over generations.
+    In the example of father's height and child's height, the interpretation is that taller fathers may have taller children, but these effects cannot be amplified between generations. The expectation of the child's height will be the average height plus some fraction of the deviation of the father's height from the average.
 
     \item From the formula of variance and applying the Law of Iterated Expectations,
     \begin{align*}
         V(Y) &= E [Y^2] - E[Y]^2 \\
         &= E [ E [Y^2|X] ] - E [E[Y|X]]^2 \\
         &= E [ V(Y|X) + E[Y|X]^2 ] - E [E[Y|X]]^2 \\
-        &= E [ V(Y|X) ] + E [ E[Y|X]^2] - [E[Y|X]]^2 \\
-        &= E [ V(Y|X) ] + V ( E [Y|X])
+        &= E [ V(Y|X) ] + E [ E[Y|X]^2] - [E[Y|X]]^2 = E [ V(Y|X) ] + V ( E [Y|X])
     \end{align*}
 
     \item
     \begin{enumerate}[(a)]
-        \item Using the formula for the best linear predictor, $E^*[m(Z) | X]= \delta_0 + \xi_0 X$, and the law of iterated such that $E[m(Z)] = E[E[X|Z]] = E[X]$,
+        \item Using the formula for the best linear predictor, $E^*[m(Z) | X]= \delta_0 + \xi_0 X$, and the law of iterated expectiations such that $E[m(Z)] = E[E[X|Z]] = E[X]$,
         \begin{align*}
             \xi_0 &= \sigma\Big(m(Z),X\Big) V(X)^{-1} \\
             &= E\bigg[\Big(m(Z) - E[m(Z)]\Big)\Big(X - E[X]\Big)\bigg] \Big( E[V(X|Z)] + V(E[X|Z]) \Big)^{-1}\\
@@ -95,4 +92,128 @@
 
 \end{enumerate}
 
+\section{Hansen textbook problems}
+
+    \subsection*{2.16}
+
+    First, the marginal distributions of $x$ and $y$ are given by
+    \begin{align*}
+        f(x) &= \int_0^1 \frac{3}{2} (x^2 + y^2) dy \\
+        &= \frac{3}{2} (x^2y + \frac{1}{3}y^3) \bigg|^1_0 = \frac{3}{2} x^2 + \frac{1}{2} \\
+        f(y) &= \frac{3}{2}y^2 + \frac{1}{2}
+    \end{align*}
+    So, $E[x] = E[y] = \frac{5}{8}$, and $V(x) = V(y) = \frac{7}{15} - \frac{25}{64} = \frac{73}{960}$ The covariance of $x$ and $y$ is given by
+    \begin{align*}
+        \sigma(x,y) = E[xy] - E[x]E[y] &= \int_0^1 \int_0^1 xy \frac{3}{2} (x^2 + y^2) dydx - \Big(\frac{5}{8}\Big)^2 \\
+        &= \int_0^1 \int_0^1 \frac{3}{2} (x^3y + xy^3) dydx - \frac{25}{64} \\
+        &= \int_0^1 \frac{3}{4} x^3y^2 + \frac{3}{8}xy^4 \bigg|_0^1 dx - \frac{25}{64} \\
+        &= \int_0^1 (\frac{3}{4} x^3 + \frac{3}{8}x) dx - \frac{25}{64} \\
+        &= \frac{3}{16} + \frac{3}{16} - \frac{25}{64} = - \frac{1}{64}
+    \end{align*}
+
+    The best linear predictor of $y$ will be given by $E[y|x] = \alpha + \beta x$, with
+    \begin{align*}
+        \beta &= \sigma(x,y)V(x)^{-1} = -\frac{1}{64}\frac{960}{73} = -\frac{15}{73}
+    \end{align*}
+    And $\alpha = E[y] - E[x] \beta = (1 + \frac{15}{73})\frac{5}{8}$.
+
+    The conditional mean of $y$ given $x$ is
+    \begin{align*}
+        E[y|x] &= \frac{\int_0^1 \frac{3}{2}(x^2 + y^2)y dy }{\frac{3}{2} x^2 + \frac{1}{2}} \\
+        &= \frac{\int_0^1 \frac{3}{2}(x^2y + y^3) dy }{\frac{3}{2} x^2 + \frac{1}{2}} = \frac{ \frac{3}{4}x^2 + \frac{3}{8} }{\frac{3}{2} x^2 + \frac{1}{2}}
+    \end{align*}
+    Which is clearly not the best linear predictor.
+
+    \subsection*{2.18}
+    \begin{enumerate}[(a)]
+        \item Using $x_3 = \alpha_1 + \alpha_2 x_2$,
+        \begin{align*}
+            Q_{xx} = E[(xx')] &= E[\begin{pmatrix} 1 & x_2 & x_3 \\ x_2 & x_2^2 & x_2x_3 \\ x_3 & x_2x_3 & x_3^2 \end{pmatrix}] \\
+            &= E[\begin{pmatrix} 1 & x_2 & (\alpha_1 + \alpha_2 x_2) \\ x_2 & x_2^2 & x_2(\alpha_1 + \alpha_2 x_2) \\ \alpha_1 + \alpha_2 x_2 & x_2(\alpha_1 + \alpha_2 x_2) & (\alpha_1 + \alpha_2 x_2)^2 \end{pmatrix}] \\
+            &= E[\begin{pmatrix} 1 & x_2 & (\alpha_1 + \alpha_2 x_2) \\ x_2 & x_2^2 & x_2(\alpha_1 + \alpha_2 x_2) \\ \alpha_1 + \alpha_2 x_2 & \alpha_1x_2 + \alpha_2 x_2^2 & \alpha_1 (\alpha_1 + \alpha_2 x_2) + \alpha_2 (x_2(\alpha_1 + \alpha_2 x_2)) \end{pmatrix}]
+        \end{align*}
+        Where the third row is a linear combination of the first two ($\alpha_1$ of the first and $\alpha_2$ of the second), so this is not invertible.
+
+        \item Taking the linear transformation $Ax$ such that $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$, I can apply ordinary least squares to find a $\gamma$ such that $\gamma = \begin{pmatrix} \gamma_1 \\ \gamma_2 \end{pmatrix}$ are the coefficients on $1$ and $x_2$ for the best linear predictor of $y$ given $1$ and $x_2$. Then, the best linear predictor of $y$ given $x$ is $\begin{pmatrix} \gamma_1 & \gamma_2 & \gamma_3 \end{pmatrix} A = \begin{pmatrix} \gamma_1 & \gamma_2 & 0 \end{pmatrix}$. That is, the best linear predictor of $y$ given $x$ is also the best linear predictor of $y$ given $(1, x_2)$.
+
+    \end{enumerate}
+    
+    \subsection*{2.19}
+
+    Rewriting $d(\beta) = E\Big( m(x) - x'\beta \Big)^2 = E \Big( m(x)^2 - 2 \beta' x m(x) + \beta' x'x \beta \Big)$, the first-order condition is
+    \begin{align*}
+        E \Big( x x' \Big) \beta  &= E \Big( x m(x) \Big) \\
+        \beta &= E \Big( x x' \Big)^{-1} E \Big( x m(x) \Big) \\
+        \beta &= E \Big( x x' \Big)^{-1} E \Big( x m(x) \Big) \\
+        \beta &= E \Big( x x' \Big)^{-1} E \Big( x E[y|x] \Big) \\
+        \beta &= E \Big( x x' \Big)^{-1} E \Big( E[xy|x] \Big) \\
+        \beta &= E \Big( x x' \Big)^{-1} E \Big( xy \Big)
+    \end{align*}
+
+    \subsection*{3.7} 
+
+    Show that if $X = [X_1 X_2]$, then $PX_1 = X_1$ and $MX_1 = 0$: Denote the dimensions of $X_1$ and $X_2$ as $N \times K_1$ and $N \times K_2$, respectively. Then, the dimensionality of $P$ is $N \times N$, and $P X = P [X_1 X_2] = [PX_1 PX_2] = [X_1 X_2]$, so $PX_1 = X_1$. Then, $MX_1 = (I_N - P)(X_1) = X_1 - PX_1 = X_1 - X_1 = 0$.
+
+    \subsection*{3.8}
+    Show that $MM = M$:
+    \begin{align*}
+        MM &= (I - X(X'X)^{-1}X')(I - X(X'X)^{-1}X') \\
+        &= I - 2X(X'X)^{-1}X' + X(X'X)^{-1}X'X(X'X)^{-1}X' \\
+        &= I - 2X(X'X)^{-1}X' + X(X'X)^{-1}X' = I - P = M
+    \end{align*}
+
+    \subsection*{3.9}
+
+    Show that $\text{tr}(M) = n - k$:
+    \begin{align*}
+        \text{tr}(M) = \text{tr}(I - P) &= \text{tr}(I) - \text{tr}(P) \\
+        &= n - \text{tr}(X(X'X)^{-1}X') \\
+        &= n - \text{tr}(X'X(X'X)^{-1}) \\
+        &= n - \text{tr}(I_k) = n-k
+    \end{align*}
+
+    \subsection*{3.10}
+
+    Show that $P = P_1 + P_2$ given $X'_1 X_2 = 0$: Note that $X_1' X_2 = 0 \implies X_2'X_1 = 0$.
+    \begin{align*}
+        P &= \begin{pmatrix} X_1 & X_2 \end{pmatrix}
+            \begin{pmatrix} X_1' X_1 & 0 \\ 0 & X_2' X_2 \end{pmatrix}^{-1}
+            \begin{pmatrix} X_1' \\ X_2' \end{pmatrix} \\
+        &= \begin{pmatrix} X_1 & X_2 \end{pmatrix}
+            \begin{pmatrix} (X_1' X_1)^{-1} & 0 \\ 0 & (X_2' X_2)^{-1} \end{pmatrix}
+            \begin{pmatrix} X_1' \\ X_2' \end{pmatrix} \\
+        &= \begin{pmatrix} X_1 (X_1'X_1)^{-1} & X_2 (X_2'X_2)^{-1} \end{pmatrix}
+            \begin{pmatrix} X_1' \\ X_2' \end{pmatrix}\\
+        &= X_1 (X_1'X_1)^{-1}X_1' + X_2 (X_2'X_2)^{-1}X_2' = P_1 + P_2
+    \end{align*}
+
+    \subsection*{5.2}
+
+    \begin{enumerate}
+        \item Show that $\bar{y}^*$ is unbiased:
+        \begin{align*}
+            E[\bar{y}^*] &= E[\frac{1}{n} \sum_{i=1}^n w_i y_i] = \frac{1}{n} \sum_{i=1}^n w_i E[y_i] = \mu
+        \end{align*}
+        \item Calculate $V(\bar{y}^*)$:
+        \begin{align*}
+            V(\bar{y}^*) &= V(\frac{1}{n} \sum_{i=1}^n w_i y_i) = \frac{1}{n^2} \sum_{i=1}^n w_i^2 V(y_i) = \frac{\sum_{i=1}^n w_i^2}{n^2} V(y_i)
+        \end{align*}
+        \item Using Chevychev's Inequality and some $\delta > 0$
+        \begin{align*}
+            Pr(|\bar{y^*_n} - \mu| > \delta) \leq \frac{V(\bar{y^*_n})}{\delta} = \frac{\sum_{i=1}^n w_i^2 / n^2}{\delta}
+        \end{align*}
+        If the numerator goes to 0, then $\bar{y^*_n} \overset{p}{\rightarrow} \mu$.
+        \item Show that a sufficient condition for the condition in part 3 is $\max_{i \leq n} w_i = o(n)$: The condition from part 3 was that the variance of $\bar{y^*_n} \overset{p}{\rightarrow} 0$. Let $w = \max_{i \leq n} w_i = o(n)$. Noting that $w \leq 1 \implies w^2 \leq w$,
+        \begin{align*}
+            \frac{\sum_{i=1}^n w_i^2}{n^2} V(y_i) &\leq \frac{\sum_{i=1}^n w^2}{n^2} V(y_i) \\
+            &= \frac{w^2}{n} V(y_i) < \frac{w}{n} V(y_i)
+        \end{align*}
+        Because $w = o(n)$, this term goes to 0, so the variance goes to 0 as well.
+    \end{enumerate}
+    \subsection*{5.3}
+    Applying Chebyshev's Inequality,
+    \begin{align*}
+        Pr( |Z| > \delta) &\leq \frac{1}{\delta^2} = 0.05 \implies \delta = \frac{1}{\sqrt{0.05}} \approxeq 4.47
+    \end{align*}
+    If $Z$ is standard normal, then $\delta = 1.96$. So, Chebyshev's inequality is very, very conservative relative to the actual value.
 \end{document}
