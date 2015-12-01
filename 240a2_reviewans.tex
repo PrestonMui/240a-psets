@@ -18,11 +18,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Problems
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{section}{2}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Question 3
+\setcounter{section}{2}
 \section{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}[(a)]
@@ -61,6 +58,81 @@
 		First, examine $(H \Lambda H')^{-1}$ which is simply $\Lambda$ after taking off the first row and column. There is kind of a problem here in that inverting a 3 x 3 matrix by hand is annoying, so I will skip that and say just compare $W_0$ to the critical values of the $\chi^2_3$ distribution.
 		\item This is simply testing whether or not the Coefficient on $\hat{V}$ is equal to 0. If it is, then both equations (1) and (3) provide the same functional form and coefficients. So, this is a simple t-test on the coefficient of $\hat{V}$. The t-stat is $\frac{0.0076}{0.0302} > 3$ so we can reject the null that the coefficients are the same.
 	\end{enumerate}	
+	
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{9}
+\section{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[(a)]
+	\item $E^*[Y|G] = \alpha + \beta G + 2 E^*[A|G] + E^*[U|G] = \alpha + \beta G + 2 (\delta_0 + \delta_1 G) = \alpha + 2\delta_0 + (\beta + 2\delta_1)G$
+	\item $\alpha + 2 \delta_0 = 35000$ and $\beta + 2\delta_1 = 30000$.
+	\item $\delta_1 = 1300 - 1100 = 200$; $\delta_0 = 1100$.
+	\item According to the model, the expected earnings cost of dropping out is $\beta$. Using the calculations from above, $\beta = 30000 - 400 = 29600$. However, if I am dropping out specifically to spend more time on Telegraph Avenue, presumably the cost is higher because I will be jobless.
+	\item Using $E^*[Y|G]$, the expected earnings of the Free Speech Movement neighbor are $\alpha + 2\delta_0 = 35000$ and the expected earnings of the other neighbor are $\alpha + 2\delta_0 + \beta + 2 \delta_1 = 65000$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{14}
+\section{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[(a)]
+	\item $\beta_l$ is the simple average of $m(X_i)$ for all $X_i \in B_l$.
+	\item The LHS is Mean-Squared-Error simply because MSE = Squared Bias + Variance. So, the problem resolves to showing that the LHS and RHS are equal. First off, I believe there is an error in the statement, and that the RHS should divide the first term by 4. In any case, here is how I showed it.
+
+	Without loss of generality, order the observations such that $X_1 < X_2 < X_3 < \cdots < X_N$. Further, denote $N_l$ as the number of observations within a given strata $l$.
+
+	First, consider the bias of $\hat{m}(\bar{x}) = \hat{\beta}_L$. since $\hat{\beta}_L$ will be the observed mean of $Y_i$ for all $i$ such that $X_i \in B_L$, we can write
+	\begin{align*}
+		E[\hat{m}(\bar{x})] &= E\Big[\frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} Y_j \Big] \mbox{ (Don't freak out this is just the average $Y$ for the observations in bin $L$)} \\
+		&= \frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} E[Y_j] \\
+		&= \frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} m(X_j)
+	\end{align*}
+	For every $m(X_j)$ we can form an approximation to $m(X_j)$ using $m(\bar{x})$ and $m'(\bar{x})$. Note that the distance (in $X$ units) between $X_N$ and $X_j$ is $\frac{N-j}{N_L-1}h$. So, the approximation is $m(X_j) \approx m(\bar{x}) - m'(\bar{X}) \frac{N-j}{N_L-1}h$. Pluggin this approximation in,
+	\begin{align*}
+		E[\hat{m}(\bar{x})] &= \frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} \Bigg[ m(\bar{x}) - m'(\bar{X}) \frac{N-j}{N_L-1}h \Bigg] \\
+		&= m(\bar{x}) - \frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} \Bigg[ m'(\bar{X}) \frac{N-j}{N_L-1}h \Bigg] \\
+		&= m(\bar{x}) - m'(\bar{x}) h \frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} \Bigg[\frac{N-j}{N_L-1} \Bigg] \\
+		&= m(\bar{x}) - m'(\bar{x}) h \frac{1}{N_L} \frac{0 + 1 + \cdots + N_L - 1}{N_L - 1} \\
+		&= m(\bar{x}) - m'(\bar{x}) h \frac{1}{N_L} \frac{(N_L-1)N_L / 2}{N_L - 1} \\
+		&= m(\bar{x}) - m'(\bar{x}) \frac{h}{2}
+	\end{align*}
+	So, bias squared is
+	\begin{align*}
+		\Big( E[\hat{m}(\bar{x})] - m(\bar{x}) \Big)^2 &= \Big( m(\bar{x}) - m'(\bar{x}) \frac{h}{2} - m(\bar{x}) \Big)^2 = m'(x)^2 \frac{h^2}{4}
+	\end{align*}
+
+	The variance of $\hat{m}(\bar{x})$ will be
+	\begin{align*}
+		\mathbb{V}(\hat{m}(\bar{x})) &= \mathbb{V}(\frac{1}{N_L} \sum_{j=N - N_L + 1}^{N} Y_j ) \\
+		&= \frac{1}{N_L^2} \sum_{j=N - N_L + 1}^{N} \mathbb{V} (Y_j) \\
+		&= \frac{\sigma^2}{N_L}
+	\end{align*}
+	So the question is what is $N_L$? Well this is $N$ divided by $L$. But $L = (\bar{x} - \underline{x}) / h$. So, $\mathbb{V}(\hat{m}(\bar{x})) = \frac{\sigma^2 (\bar{x} - \underline{x})}{Nh}$.
+
+	The intuition of this problem is that if you have a really small bin then your bias is very very small because you are only taking observations close to $\bar{x}$. But, if you have a small bin then you have fewer observations so your variance is much higher. So, that is the tradeoff. Taking the first-order conditions of the RHS (assuming the statement as written in the review sheet is CORRECT) and rearranging yields
+	\begin{align*}
+		h^* &= \Big( \frac{(\bar{x} - \underline{x})\sigma^2}{2 N m'(\bar{x})^2} \Big)^{1/3}
+	\end{align*}
+	\item From the functional form of $Y$ given $X$ derive $\hat{m}'(x) = \hat{\pi}_1 + 2 \hat{\pi}_2 x$. Then, plugging in for the optimal bin length from above gives
+	\begin{align*}
+		\hat{h^*} &= \Big( \frac{(\bar{x} - \underline{x}) \hat{\sigma}^2}{2 N (\hat{\pi}_1 + 2 \hat{\pi}_2 x)^2} \Big)^{1/3}
+	\end{align*}
+	Since $L = (\bar{x} - \underline{x}) h^{-1}$,
+	\begin{align*}
+		L_N &= (\bar{x} - \underline{x}) \Big( \frac{(\bar{x} - \underline{x})\hat{\sigma}^2}{2 N (\hat{\pi}_1 + 2 \hat{\pi}_2 x)^2} \Big)^{-1/3} \\
+		&= 8(\bar{x} - \underline{x})^{2/3} \Big( \frac{\hat{\sigma}^2}{(\hat{\pi}_1 + 2 \hat{\pi}_2 x)^2} \Big)^{-1/3} N^{1/3}
+	\end{align*}
+	The floor function applies to give us an integer number of bins.
+
+	\item Here is a simple but not-all-that-formal argument: The function in this section is an estimate of $m(X)$. For any two $X_i, X_j$ such that $i, j \in B_l$, the implied $m'(X_i)$ is $\frac{m(X_j) - m(X_i)}{X_j - X_i} = \gamma_l$. A little more formally, say $i$ and $i+1$ are both in $B_i$, then
+	\begin{align*}
+	 	E[m'(x_i)] &\approx E\Big[ \frac{m(X_{i+1})-m(X_i)}{X_{i+1} - X_i} \Big] \\
+	 	&= \frac{ E[m(X_{i+1})]- E[m(X_i)]}{X_{i+1} - X_i} \\
+	 	&= \frac{ \gamma_l X_{i+1} - \gamma_l X_i}{X_{i+1} - X_i} = \gamma_l
+	\end{align*}
+	This relies on the linear predictor being close to the conditional mean of $Y$ on $X$. Also the distance between $X_{i+1}$ and $X_i$ gets smaller as $N$ increases, so it gets closer to the definition of the derivative.
 	
 \end{enumerate}
 
